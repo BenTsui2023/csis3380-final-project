@@ -1,18 +1,22 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
-const Header = () => (
-  <header>
-    <ul className="main-nav">
-      <li><NavLink >Home</NavLink></li>
-      <li><NavLink >Burgers</NavLink></li>
-      <li><NavLink >Pizzas</NavLink></li>
-      <li><NavLink >Drinks</NavLink></li>
-      {/* <li><NavLink to="/burgers">Burgers</NavLink></li>
+const NavBar = () => (
+  <div className='NavBar'>
+    {/* <ul className="main-nav">
+      <li><NavLink to="/">Home</NavLink></li>
+      <li><NavLink to="/burgers">Burgers</NavLink></li>
       <li><NavLink to="/pizzas">Pizzas</NavLink></li>
-      <li><NavLink to="/drinks">Drinks</NavLink></li> */}
-    </ul>    
-  </header>
+      <li><NavLink to="/drinks">Drinks</NavLink></li>
+    </ul>     */}
+    <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About title="About" />} />
+        <Route path="/burgers" element={<Burgers />} />
+        <Route path="/pizzas" element={<Pizzas />} />
+        <Route path="/drinks" element={<Drinks />} />
+    </Routes>
+  </div>
 );
 
-export default Header;
+export default NavBar;
