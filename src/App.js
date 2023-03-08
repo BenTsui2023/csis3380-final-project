@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import React, { useState, useEffect } from "react";
-import MealList from "./MealList";
 import './App.css';
 
 const Product = (props) => {
