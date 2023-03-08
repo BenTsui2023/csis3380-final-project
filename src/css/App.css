@@ -60,6 +60,7 @@
 .label_image {
   width: 180px;
   height: 180px;
+  object-fit: contain;
 }
 .wrapperForProductList {
 	display: flex;
