@@ -1,21 +1,8 @@
 import React, { useState, useEffect } from "react";
-import './App.css';
+//import NavBar from './NavBar';
+import Product from "./Product";
+import '../css/App.css';
 
-const Product = (props) => {
-  return(
-    <div className='wrapperForProduct'>
-      {/* <div className='wrapperForProductImage'> */}
-        <label class="label"><img src={props.image} class="label_image"></img></label>
-      {/* </div> */}
-      <div className='wrapperForProductDesc'>
-        <ul>
-        <li>{props.title}</li>
-        <li>{props.price}</li>
-        </ul>
-      </div>
-    </div>
-  )
-}
 
 function App() {
 
@@ -46,6 +33,7 @@ function App() {
   return (
     <div className = "App">
       <div className='header'><p>Online Restaurant</p></div>
+      {/* <NavBar /> */}
       <div className='filter'><p>This is filter</p></div>
       <div className='wrapperForProductList'>
         {mealData.map((menu , index) =>
