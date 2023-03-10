@@ -1,12 +1,12 @@
-.App {
+/* .App {
   text-align: center;
-  display:grid;
+  display:grid; 
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas: "header header header header"
                       "filter wrapperForProductList wrapperForProductList wrapperForProductList";                   
   grid-gap: 10px;
   background-color: antiquewhite;
-}
+} */
 
 .App-logo {
   height: 40vmin;

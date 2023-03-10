@@ -1,0 +1,8 @@
+.NavBar ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.NavBar > li {
+    text-decoration: none;
+}
