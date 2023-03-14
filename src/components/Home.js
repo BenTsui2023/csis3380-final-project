@@ -59,10 +59,12 @@ const Home = () => {
 
   return(
     <div className="home">
+      <div className="desc">
         <h1>Welcome!</h1>
         <p>Welcome to our online ordering website! We are thrilled to offer you a hassle-free and convenient way to order your favorite meals from the comfort of your home or office. Our menu features a wide range of delicious options, including burgers, pizzas, and drinks. Whether you're in the mood for a classic cheeseburger or a cheesy pizza, we have something for everyone. Our food is always fresh, prepared with high-quality ingredients, and served quickly to ensure that you can enjoy your meal without any delay. So go ahead and browse our menu, customize your order, and get ready to indulge in a tasty and satisfying meal!</p>
-        <div className='filter'> <Filter onFilterChange={handleFilterChange} onReset={handleReset} /></div>
-        <div className='wrapperForProductList'></div>
+      </div>  
+      <div className='filter'> <Filter onFilterChange={handleFilterChange} onReset={handleReset} /></div>
+      <div className='wrapperForProductList'>
         {filteredData.map(menu => (
               <Product
                 key={menu.idCategory}
@@ -72,6 +74,7 @@ const Home = () => {
               />
             ))
         }
+      </div>
     </div>
   )
   }

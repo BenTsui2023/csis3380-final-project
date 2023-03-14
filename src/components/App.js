@@ -71,8 +71,8 @@ function App() {
     <BrowserRouter>
     <div className = "App">
       <div className='header'><p>Online Restaurant</p></div>
-      <div>
       <NavBar />
+      <div className="content">  
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

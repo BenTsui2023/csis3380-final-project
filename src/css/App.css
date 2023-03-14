@@ -1,9 +1,20 @@
 .App {
   text-align: center;
   display:grid; 
+  grid-template-columns: 1fr;
+  grid-template-areas: "header"
+                      "NavBar"
+                      "content";                   
+  grid-gap: 10px;
+  background-color: antiquewhite;
+}
+
+.home {
+  text-align: center;
+  display:grid; 
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-areas: "header header header header"
-                      "filter wrapperForProductList wrapperForProductList wrapperForProductList";                   
+  grid-template-areas: "desc desc desc desc"
+                        "filter wrapperForProductList wrapperForProductList wrapperForProductList";                   
   grid-gap: 10px;
   background-color: antiquewhite;
 }
@@ -74,6 +85,15 @@
 }
 .filter {
   grid-area: filter;
+}
+.NavBar {
+  grid-area: NavBar;
+}
+.content {
+  grid-area: content;
+}
+.desc {
+  grid-area: desc;
 }
 .wrapperForProductList {
   grid-area: wrapperForProductList;
