@@ -4,9 +4,9 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import NavBar from "./NavBar";
 import Home from "./Home";
 import About from "./About";
-import Burgers from "./Burgers";
-import Pizzas from "./Pizzas";
-import Drinks from "./Drinks";
+import Desserts from "./Desserts";
+import Pastas from "./Pastas";
+import Beef from "./Beef";
 import NotFound from "./NotFound";
 import Product from "./Product";
 import Filter from './Filter';
@@ -76,9 +76,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/burgers" element={<Burgers />} />
-        <Route path="/pizzas" element={<Pizzas />} />
-        <Route path="/drinks" element={<Drinks />} />
+        <Route path="/Desserts" element={<Desserts />} />
+        <Route path="/Pastas" element={<Pastas />} />
+        <Route path="/Beef" element={<Beef />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       </div>

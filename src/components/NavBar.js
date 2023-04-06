@@ -7,9 +7,9 @@ const NavBar = () => (
     <ul>
       <li><NavLink to="/">Home</NavLink></li>
       <li><NavLink to="/about">About</NavLink></li>
-      <li><NavLink to="/burgers">Burgers</NavLink></li>
-      <li><NavLink to="/pizzas">Pizzas</NavLink></li>
-      <li><NavLink to="/drinks">Drinks</NavLink></li>
+      <li><NavLink to="/Desserts">Desserts</NavLink></li>
+      <li><NavLink to="/Pastas">Pastas</NavLink></li>
+      <li><NavLink to="/Beef">Beef</NavLink></li>
     </ul>
   </div>
 );

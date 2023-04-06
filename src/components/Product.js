@@ -9,6 +9,7 @@ const Product = (props) => {
         <div className='wrapperForProductDesc'>
           <ul style={{listStyleType: "none"}}>
             <li>{props.title}</li>
+            <li>{props.desc}</li>
             <li>{props.price}</li>
           </ul>
         </div>

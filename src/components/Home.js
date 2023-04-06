@@ -6,22 +6,86 @@ import Filter from './Filter';
 const Home = () => {
 
   const [mealData, setMealData] = useState([]);
-  const [mealPrice] = useState([{price: 10.3}, {price: 12.4}, {price: 7.2}, {price: 12.0}, {price: 23.4}, {price: 2.9}, {price: 12.6}, {price: 8.9}, {price: 7.6}, {price: 5.9}, {price: 15.9}, {price: 21.0}, {price: 17.3}, {price: 12.9}]);
+  const [mealPrice] = useState([{price: 10.3, description: "This is product A"}, {price: 12.4, description: "This is product A"}, {price: 7.2, description: "This is product A"}, {price: 12.0, description: "This is product A"}, {price: 23.4, description: "This is product A"}, {price: 2.9, description: "This is product A"}, {price: 12.6, description: "This is product A"}, {price: 8.9, description: "This is product A"}, {price: 7.6, description: "This is product A"}, {price: 5.9, description: "This is product A"}, {price: 15.9, description: "This is product A"}, {price: 21.0, description: "This is product A"}, {price: 17.3, description: "This is product A"}, {price: 12.9, description: "This is product A"}]);
   const [mealDataWithPrice, setMealDataWithPrice] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
-    fetch(
-     // "https://api.spoonacular.com/food/menuItems/search?apiKey=6e6ba03597a84042837973e85d2f2a7d&query=burger&number=8"
-     'https://www.themealdb.com/api/json/v1/1/categories.php'
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setMealData(data.categories);
-        //console.log(data.categories)
+    fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Dessert')
+      .then(response => response.json())
+      .then(data => {
+        const dessertMealPromises = data.meals.slice(0, 10).map(meal =>
+          fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`)
+            .then(response => response.json())
+            .then(mealData => {
+              const { strMeal, strMealThumb, idMeal } = mealData.meals[0];
+              const ingredients = [];
+              for (let i = 1; i <= 20; i++) {
+                if (mealData.meals[0][`strIngredient${i}`]) {
+                  ingredients.push(`${mealData.meals[0][`strIngredient${i}`]}`);
+                }
+              }
+              const meal = { mealName: strMeal, mealImage: strMealThumb, mealId: idMeal, mealIngredients: ingredients };
+              return meal;
+            })
+        );
+  
+        fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef')
+          .then(response => response.json())
+          .then(data => {
+            const beefMealPromises = data.meals.slice(0, 10).map(meal =>
+              fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`)
+                .then(response => response.json())
+                .then(mealData => {
+                  const { strMeal, strMealThumb, idMeal } = mealData.meals[0];
+                  const ingredients = [];
+                  for (let i = 1; i <= 20; i++) {
+                    if (mealData.meals[0][`strIngredient${i}`]) {
+                      ingredients.push(`${mealData.meals[0][`strIngredient${i}`]}`);
+                    }
+                  }
+                  const meal = { mealName: strMeal, mealImage: strMealThumb, mealId: idMeal, mealIngredients: ingredients };
+                  return meal;
+                })
+            );
+  
+            fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Pasta')
+              .then(response => response.json())
+              .then(data => {
+                const pastaMealPromises = data.meals.slice(0, 10).map(meal =>
+                  fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`)
+                    .then(response => response.json())
+                    .then(mealData => {
+                      const { strMeal, strMealThumb, idMeal } = mealData.meals[0];
+                      const ingredients = [];
+                      for (let i = 1; i <= 20; i++) {
+                        if (mealData.meals[0][`strIngredient${i}`]) {
+                          ingredients.push(`${mealData.meals[0][`strIngredient${i}`]}`);
+                        }
+                      }
+                      const meal = { mealName: strMeal, mealImage: strMealThumb, mealId: idMeal, mealIngredients: ingredients };
+                      return meal;
+                    })
+                );
+  
+                Promise.all([...dessertMealPromises, ...beefMealPromises, ...pastaMealPromises])
+                  .then(data => {
+                    setMealData(data);
+                  })
+                  .catch((error) => {
+                    console.log('Error occurred while fetching meal data', error);
+                  });
+              })
+              .catch((error) => {
+                console.log('Error occurred while fetching Pasta data', error);
+              });
+          })
+          .catch((error) => {
+            console.log('Error occurred while fetching Beef data', error);
+          });
       })
-      .catch(() => {
-        console.log("error");
+      .catch((error) => {
+        console.log('Error occurred while fetching Dessert data', error);
       });
   }, []);
 
@@ -30,6 +94,7 @@ const Home = () => {
     const newData = mealData.map((data, index) => ({...data, ...mealPrice[index]}));
     setMealDataWithPrice(newData);
     setFilteredData(newData)
+    console.log(mealData)
   }, [mealData, mealPrice]);
   //console.log(filteredData)
 
@@ -38,7 +103,7 @@ const Home = () => {
 
     if (name) {
       newData = newData.filter((item) =>
-        item.strCategory.toLowerCase().includes(name.toLowerCase())
+        item.mealName.toLowerCase().includes(name.toLowerCase())
       );
     }
 
@@ -56,9 +121,9 @@ const Home = () => {
   function handleReset() {
     setFilteredData(mealDataWithPrice);
   }
-
+  
   return(
-    <div className="home">
+    <div className="wrapper">
       <div className="desc">
         <h1>Welcome!</h1>
         <p>Welcome to our online ordering website! We are thrilled to offer you a hassle-free and convenient way to order your favorite meals from the comfort of your home or office. Our menu features a wide range of delicious options, including burgers, pizzas, and drinks. Whether you're in the mood for a classic cheeseburger or a cheesy pizza, we have something for everyone. Our food is always fresh, prepared with high-quality ingredients, and served quickly to ensure that you can enjoy your meal without any delay. So go ahead and browse our menu, customize your order, and get ready to indulge in a tasty and satisfying meal!</p>
@@ -68,9 +133,11 @@ const Home = () => {
         {filteredData.map(menu => (
               <Product
                 key={menu.idCategory}
-                image={menu.strCategoryThumb}
-                title={menu.strCategory}
+                desc={menu.description}
+                image={menu.mealImage}
+                title={menu.mealName}
                 price={menu.price}
+                ingredients={menu.mealIngredients}
               />
             ))
         }
