@@ -95,7 +95,7 @@ const Home = () => {
     setMealDataWithPrice(newData);
     setFilteredData(newData)
   }, [mealData, mealPrice]);
-  //console.log(filteredData)
+  console.log(filteredData)
 
   function handleFilterChange({ name, minPrice, maxPrice }) {
     let newData = [...mealDataWithPrice];
@@ -131,7 +131,7 @@ const Home = () => {
       <div className='wrapperForProductList'>
         {filteredData.map(menu => (
               <Product
-                key={menu.idCategory}
+                key={menu.idMeal}
                 desc={menu.description}
                 image={menu.mealImage}
                 title={menu.mealName}

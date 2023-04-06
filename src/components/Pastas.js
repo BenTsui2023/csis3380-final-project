@@ -13,7 +13,7 @@ const Pastas = () => {
         fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Pasta')
           .then(response => response.json())
           .then(data => {
-            const pastaMealPromises = data.meals.slice(0, 10).map(meal =>
+            const pastaMealPromises = data.meals.slice(0, 9).map(meal =>
               fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`)
                 .then(response => response.json())
                 .then(mealData => {

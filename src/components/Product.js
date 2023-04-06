@@ -1,10 +1,23 @@
 import React from 'react';
+import ProductDetails from './ProductDetails';
+import { NavLink } from 'react-router-dom';
 
 const Product = (props) => {
     return(
-      <div className='wrapperForProduct'>
+      <NavLink to={`/ProductDetails/${props.key}`}
+        state= {{
+          idCategory: props.idCategory,
+          description: props.desc,
+          mealImage: props.image,
+          mealName: props.title,
+          price: props.price,
+          mealIngredients: props.ingredients,
+        }
+      }>
+
+        <div className='wrapperForProduct'>
         {/* <div className='wrapperForProductImage'> */}
-          <label className="label"><img src={props.image} className="label_image"></img></label>
+          <label className="label"><img src={props.image} className="label_image" alt='meal'></img></label>
         {/* </div> */}
         <div className='wrapperForProductDesc'>
           <ul style={{listStyleType: "none"}}>
@@ -14,6 +27,7 @@ const Product = (props) => {
           </ul>
         </div>
       </div>
+      </NavLink>
     )
   }
 

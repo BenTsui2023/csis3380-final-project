@@ -8,65 +8,12 @@ import Desserts from "./Desserts";
 import Pastas from "./Pastas";
 import Beef from "./Beef";
 import NotFound from "./NotFound";
-import Product from "./Product";
+import ProductDetails from "./ProductDetails";
 import Filter from './Filter';
 import '../css/App.css';
 
 
 function App() {
-
-  // const [mealData, setMealData] = useState([]);
-  // const [mealPrice] = useState([{price: 10.3}, {price: 12.4}, {price: 7.2}, {price: 12.0}, {price: 23.4}, {price: 2.9}, {price: 12.6}, {price: 8.9}, {price: 7.6}, {price: 5.9}, {price: 15.9}, {price: 21.0}, {price: 17.3}, {price: 12.9}]);
-  // const [mealDataWithPrice, setMealDataWithPrice] = useState([]);
-  // const [filteredData, setFilteredData] = useState([]);
-
-  // useEffect(() => {
-  //   fetch(
-  //    // "https://api.spoonacular.com/food/menuItems/search?apiKey=6e6ba03597a84042837973e85d2f2a7d&query=burger&number=8"
-  //    'https://www.themealdb.com/api/json/v1/1/categories.php'
-  //   )
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setMealData(data.categories);
-  //       //console.log(data.categories)
-  //     })
-  //     .catch(() => {
-  //       console.log("error");
-  //     });
-  // }, []);
-
-  // useEffect(() => {
-  //   // Combine mealData and mealPrice into a new array of objects
-  //   const newData = mealData.map((data, index) => ({...data, ...mealPrice[index]}));
-  //   setMealDataWithPrice(newData);
-  //   setFilteredData(newData)
-  // }, [mealData, mealPrice]);
-  // //console.log(filteredData)
-
-  // function handleFilterChange({ name, minPrice, maxPrice }) {
-  //   let newData = [...mealDataWithPrice];
-
-  //   if (name) {
-  //     newData = newData.filter((item) =>
-  //       item.strCategory.toLowerCase().includes(name.toLowerCase())
-  //     );
-  //   }
-
-  //   if (maxPrice) {
-  //     newData = newData.filter((item) => item.price <= maxPrice);
-  //   }
-
-  //   if (minPrice) {
-  //     newData = newData.filter((item) => item.price >= minPrice);
-  //   }
-
-  //   setFilteredData(newData);
-  // }
-
-  // function handleReset() {
-  //   setFilteredData(mealDataWithPrice);
-  // }
-  
   return (
     <BrowserRouter>
     <div className = "App">
@@ -79,33 +26,10 @@ function App() {
         <Route path="/Desserts" element={<Desserts />} />
         <Route path="/Pastas" element={<Pastas />} />
         <Route path="/Beef" element={<Beef />} />
+        <Route path="/ProductDetails/:id" element={<ProductDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       </div>
-      {/* <div className='filter'> <Filter onFilterChange={handleFilterChange} onReset={handleReset} /></div>
-      <div className='wrapperForProductList'> */}
-        {/* {mealData.map((menu , index) =>
-          <Product
-            // key={menu.id}
-            // image={menu.image}
-            // title={menu.title}
-            //price={mealPrice[index].price}
-            key={menu.idCategory}
-            image={menu.strCategoryThumb}
-            title={menu.strCategory}
-            price={mealPrice[index].price}
-          />
-        )} */}
-        {/* {filteredData.map(menu => (
-              <Product
-                key={menu.idCategory}
-                image={menu.strCategoryThumb}
-                title={menu.strCategory}
-                price={menu.price}
-              />
-            ))
-          } */}
-      {/* </div> */}
     </div>
     </BrowserRouter>
   );
