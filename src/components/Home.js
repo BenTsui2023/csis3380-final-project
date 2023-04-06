@@ -94,7 +94,6 @@ const Home = () => {
     const newData = mealData.map((data, index) => ({...data, ...mealPrice[index]}));
     setMealDataWithPrice(newData);
     setFilteredData(newData)
-    console.log(mealData)
   }, [mealData, mealPrice]);
   //console.log(filteredData)
 
