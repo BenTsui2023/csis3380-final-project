@@ -1,0 +1,56 @@
+.filter-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 20rem;
+    padding: 1rem;
+}
+
+.button {
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    padding: 0.4rem 0.8rem;
+    margin: 0.6rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: rgb(255, 113, 47);
+    box-shadow: 0 3px 0 rgb(145, 43, 0);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #d75a3b;
+}
+
+.button:active {
+    box-shadow: 0 1px 0 #ae4a31;
+    transform: translateY(2px);
+}
+
+label {
+    font-size: 1.2rem;
+    /* Increase label text size */
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"] {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    /* Add border radius */
+    padding: 10px;
+    font-size: 1.2rem;
+    /* Increase input text size */
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: #e86c4f;
+}

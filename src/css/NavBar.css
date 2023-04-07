@@ -1,22 +1,24 @@
 .NavBar ul {
     list-style-type: none;
     display: flex;
-    background-color:rgb(255, 228, 166);
+    background-color: rgb(255, 228, 166);
     width: 80%;
-    height: 2rem;
+    height: 3rem;
     margin: auto;
-    justify-content: center;
+    justify-content: space-around;
     border-radius: 15px;
 }
 
 .NavBar li {
-    margin: auto 1.5rem;
+    margin: auto 1rem;
+    font-size: 1.25rem;
 }
 
 .NavBar li a {
     text-decoration: none;
     color: black;
     font-weight: bold;
+    transition: color 0.3s ease-in-out;
 }
 
 .NavBar li a:hover {
