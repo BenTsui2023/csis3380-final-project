@@ -6,7 +6,7 @@ import Filter from './Filter';
 const Home = () => {
 
   const [mealData, setMealData] = useState([]);
-  const [mealPrice] = useState([{price: 10.3, description: "This is product A"}, {price: 12.4, description: "This is product A"}, {price: 7.2, description: "This is product A"}, {price: 12.0, description: "This is product A"}, {price: 23.4, description: "This is product A"}, {price: 2.9, description: "This is product A"}, {price: 12.6, description: "This is product A"}, {price: 8.9, description: "This is product A"}, {price: 7.6, description: "This is product A"}, {price: 5.9, description: "This is product A"}, {price: 15.9, description: "This is product A"}, {price: 21.0, description: "This is product A"}, {price: 17.3, description: "This is product A"}, {price: 12.9, description: "This is product A"}]);
+  const [mealPrice] = useState([{ price: 10.3, description: "This is product A" }, { price: 12.4, description: "This is product A" }, { price: 7.2, description: "This is product A" }, { price: 12.0, description: "This is product A" }, { price: 23.4, description: "This is product A" }, { price: 2.9, description: "This is product A" }, { price: 12.6, description: "This is product A" }, { price: 8.9, description: "This is product A" }, { price: 7.6, description: "This is product A" }, { price: 5.9, description: "This is product A" }, { price: 15.9, description: "This is product A" }, { price: 21.0, description: "This is product A" }, { price: 17.3, description: "This is product A" }, { price: 12.9, description: "This is product A" }]);
   const [mealDataWithPrice, setMealDataWithPrice] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
 
@@ -29,7 +29,7 @@ const Home = () => {
               return meal;
             })
         );
-  
+
         fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef')
           .then(response => response.json())
           .then(data => {
@@ -48,7 +48,7 @@ const Home = () => {
                   return meal;
                 })
             );
-  
+
             fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Pasta')
               .then(response => response.json())
               .then(data => {
@@ -67,7 +67,7 @@ const Home = () => {
                       return meal;
                     })
                 );
-  
+
                 Promise.all([...dessertMealPromises, ...beefMealPromises, ...pastaMealPromises])
                   .then(data => {
                     setMealData(data);
@@ -91,7 +91,7 @@ const Home = () => {
 
   useEffect(() => {
     // Combine mealData and mealPrice into a new array of objects
-    const newData = mealData.map((data, index) => ({...data, ...mealPrice[index]}));
+    const newData = mealData.map((data, index) => ({ ...data, ...mealPrice[index] }));
     setMealDataWithPrice(newData);
     setFilteredData(newData)
   }, [mealData, mealPrice]);
@@ -120,29 +120,29 @@ const Home = () => {
   function handleReset() {
     setFilteredData(mealDataWithPrice);
   }
-  
-  return(
+
+  return (
     <div className="wrapper">
       <div className="desc">
         <h1>Welcome!</h1>
-        <p>Welcome to our online ordering website! We are thrilled to offer you a hassle-free and convenient way to order your favorite meals from the comfort of your home or office. Our menu features a wide range of delicious options, including burgers, pizzas, and drinks. Whether you're in the mood for a classic cheeseburger or a cheesy pizza, we have something for everyone. Our food is always fresh, prepared with high-quality ingredients, and served quickly to ensure that you can enjoy your meal without any delay. So go ahead and browse our menu, customize your order, and get ready to indulge in a tasty and satisfying meal!</p>
-      </div>  
+        <p>Welcome to our online ordering website! We are thrilled to offer you a hassle-free and convenient way to order your favorite meals from the comfort of your home or office. Our menu features a wide range of delicious options, including pasta, beef, and dessert. Whether you're in the mood for a classic steak or a cheesy pasta, we have something for everyone. Our food is always fresh, prepared with high-quality ingredients, and served quickly to ensure that you can enjoy your meal without any delay. So go ahead and browse our menu, customize your order, and get ready to indulge in a tasty and satisfying meal!</p>
+      </div>
       <div className='filter'> <Filter onFilterChange={handleFilterChange} onReset={handleReset} /></div>
       <div className='wrapperForProductList'>
         {filteredData.map(menu => (
-              <Product
-                key={menu.idMeal}
-                desc={menu.description}
-                image={menu.mealImage}
-                title={menu.mealName}
-                price={menu.price}
-                ingredients={menu.mealIngredients}
-              />
-            ))
+          <Product
+            key={menu.idMeal}
+            desc={menu.description}
+            image={menu.mealImage}
+            title={menu.mealName}
+            price={menu.price}
+            ingredients={menu.mealIngredients}
+          />
+        ))
         }
       </div>
     </div>
   )
-  }
+}
 
 export default Home;

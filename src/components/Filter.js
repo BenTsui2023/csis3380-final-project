@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../css/Filter.css';
 
 function Filter({ onFilterChange, onReset }) {
   const [name, setName] = useState('');
@@ -22,7 +23,7 @@ function Filter({ onFilterChange, onReset }) {
     onFilterChange({ name, minPrice, maxPrice });
   }
 
-  function handleReset(){
+  function handleReset() {
     setName('');
     setMinPrice('');
     setMaxPrice('');
@@ -30,7 +31,7 @@ function Filter({ onFilterChange, onReset }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="filter-form" onSubmit={handleSubmit}>
       <div>
         <label htmlFor="name">Meal Name: </label>
         <input type="text" id="name" value={name} onChange={handleNameChange} />
@@ -43,8 +44,10 @@ function Filter({ onFilterChange, onReset }) {
         <label htmlFor="maxPrice">Max Price: </label>
         <input type="number" id="maxPrice" value={maxPrice} onChange={handleMaxPriceChange} />
       </div>
-      <button type="reset" onClick={handleReset}>Reset</button>
-      <button type="submit">Filter</button>
+      <div>
+        <button class="button" type="reset" onClick={handleReset}>Reset</button>
+        <button class="button" type="submit">Filter</button>
+      </div>
     </form>
   );
 }

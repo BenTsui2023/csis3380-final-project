@@ -16,21 +16,21 @@ import '../css/App.css';
 function App() {
   return (
     <BrowserRouter>
-    <div className = "App">
-      <div className='header'><p>Online Restaurant</p></div>
-      <NavBar />
-      <div className="content">  
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/Desserts" element={<Desserts />} />
-        <Route path="/Pastas" element={<Pastas />} />
-        <Route path="/Beef" element={<Beef />} />
-        <Route path="/ProductDetails/:id" element={<ProductDetails />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <div className="App">
+        <div className='header'><p>Prairie Sky Cafe</p></div>
+        <NavBar />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/Desserts" element={<Desserts />} />
+            <Route path="/Pastas" element={<Pastas />} />
+            <Route path="/Beef" element={<Beef />} />
+            <Route path="/ProductDetails/:id" element={<ProductDetails />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
       </div>
-    </div>
     </BrowserRouter>
   );
 }
