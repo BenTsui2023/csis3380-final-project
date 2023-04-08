@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import '../css/User.css';
 
 const Users = () => {
   const [username, setUsername] = useState("");
@@ -45,13 +46,13 @@ const Users = () => {
   }
   const Get = () => {
     axios.get("http://localhost:3000/api/users/", {
-        headers: {
-            "Authorization": `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      })
+      headers: {
+        "Authorization": `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    })
       .then((response) => {
-        
+
         console.log(response);
       })
       .catch((error) => {
@@ -66,43 +67,44 @@ const Users = () => {
 
   return (
     <div>
-        {loggedIn ? (
-            <div>
-                <h2>Welcome, {username} !</h2>
-                <button onClick={Logout}>Logout</button>
-                <button onClick={Get}>Get</button>
+      {loggedIn ? (
+        <div>
+          <h2>Welcome, {username} !</h2>
+          <button onClick={Logout}>Logout</button>
+          <button onClick={Get}>Get</button>
+        </div>
+      ) : (
+        <div>
+          {showLogin ? (
+            <div className="myaccountbtndetails">
+              <input
+                className="login"
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <input
+                className="login"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {message.length > 0 && <p> {message} </p>}
+              <div className="myaccountbuttons">
+                <button onClick={Signup}>Sign Up</button>
+                <button onClick={Login}>Login</button>
+              </div>
             </div>
-        ):(
+          ) : (
             <div>
-                {showLogin ? (
-                    <div>
-                        <input
-                            className="login"
-                            type="text"
-                            placeholder="Username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                        />
-                        <input
-                            className="login"
-                            type="password"
-                            placeholder="Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                        {message.length > 0 && <p> {message} </p>}
-
-                        <button onClick={Signup}>Sign Up</button>
-                        <button onClick={Login}>Login</button>
-                    </div>
-                    ):(
-                        <div>
-                            <button onClick={ShowLoginSystem}>My Account</button>
-                        </div>
-                    )
-                }
+              <button className="myaccountbtn" onClick={ShowLoginSystem}>My Account</button>
             </div>
-        )}    
+          )
+          }
+        </div>
+      )}
     </div>
   )
 
