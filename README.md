@@ -12,7 +12,9 @@ This project entails a MERN application designed specifically for "3380 Prairie 
 
 # Tech Stack
 
-HTML, CSS, JavaScript, React.js, Express.js, Node.js, MongoDB
+Frontend: HTML, CSS, JavaScript, React.js
+Backend: Express.js, Node.js
+Database: MongoDB
 
 # APIs
 
