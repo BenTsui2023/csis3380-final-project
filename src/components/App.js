@@ -9,6 +9,7 @@ import Pastas from "./Pastas";
 import Beef from "./Beef";
 import NotFound from "./NotFound";
 import ProductDetails from "./ProductDetails";
+import Users from "./Users";
 import Filter from './Filter';
 import '../css/App.css';
 
@@ -18,6 +19,9 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <div className='header'><p>Prairie Sky Cafe</p></div>
+        <div className='users'>
+        <Users />
+        </div>
         <NavBar />
         <div className="content">
           <Routes>

@@ -1,10 +1,10 @@
 .App {
   text-align: center;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: "header"
-    "NavBar"
-    "content";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "header header users"
+    "NavBar NavBar NavBar"
+    "content content content";
   grid-gap: 10px;
   background-color: antiquewhite;
   width: 90%;
@@ -114,6 +114,23 @@
   font-weight: bolder;
   font-size: 2.5rem;
   color: rgb(255, 113, 47);
+}
+
+.users {
+  grid-area: users;
+  font-weight: bolder;
+  font-size: 1rem;
+  color: rgb(255, 113, 47);
+}
+
+.login {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  /* Add border radius */
+  padding: 5px;
+  font-size: 1rem;
+  /* Increase input text size */
+  transition: border-color 0.3s ease;
 }
 
 .filter {

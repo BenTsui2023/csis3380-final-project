@@ -34,19 +34,19 @@ function Filter({ onFilterChange, onReset }) {
     <form className="filter-form" onSubmit={handleSubmit}>
       <div>
         <label htmlFor="name">Meal Name: </label>
-        <input type="text" id="name" value={name} onChange={handleNameChange} />
+        <input className="filter-input" type="text" id="name" value={name} onChange={handleNameChange} />
       </div>
       <div>
         <label htmlFor="minPrice">Min Price: </label>
-        <input type="number" id="minPrice" value={minPrice} onChange={handleMinPriceChange} />
+        <input className="filter-input" type="number" id="minPrice" value={minPrice} onChange={handleMinPriceChange} />
       </div>
       <div>
         <label htmlFor="maxPrice">Max Price: </label>
-        <input type="number" id="maxPrice" value={maxPrice} onChange={handleMaxPriceChange} />
+        <input className="filter-input" type="number" id="maxPrice" value={maxPrice} onChange={handleMaxPriceChange} />
       </div>
       <div>
-        <button class="button" type="reset" onClick={handleReset}>Reset</button>
-        <button class="button" type="submit">Filter</button>
+        <button className="button" type="reset" onClick={handleReset}>Reset</button>
+        <button className="button" type="submit">Filter</button>
       </div>
     </form>
   );

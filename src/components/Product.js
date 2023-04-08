@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const Product = (props) => {
   return (
-    <NavLink to={`/ProductDetails/${props.key}`}
+    <NavLink to={`/ProductDetails/${props.id}`}
       state={{
         idCategory: props.idCategory,
         description: props.desc,
@@ -23,7 +23,7 @@ const Product = (props) => {
           <ul style={{ listStyleType: "none", textIndent: "-2.5rem" }}>
             <li>{props.title}</li>
             <li>{props.desc}</li>
-            <li>{props.price}</li>
+            <li>{props.price}</li>           
           </ul>
         </div>
       </div>

@@ -85,6 +85,7 @@ const Beef = () => {
                 {filteredData.map(menu => (
                     <Product
                         key={menu.mealId}
+                        id={menu.mealId}
                         desc={menu.description}
                         image={menu.mealImage}
                         title={menu.mealName}
