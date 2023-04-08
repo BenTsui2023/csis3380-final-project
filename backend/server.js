@@ -21,7 +21,6 @@ const port = process.env.PORT || 3000;
 
 //use your own mongodb atlas username and password to replace user and pw below 
 const uri = "mongodb://127.0.0.1:27017/usersDB7"; 
-//const uri = "mongodb+srv://newuser:1234@cluster0.uxnqp8k.mongodb.net/user1";
  
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
 
