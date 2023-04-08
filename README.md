@@ -31,10 +31,10 @@ This project entails a <b>MERN application</b> designed specifically for <b>3380
 
 # Getting Started
 
-1. Clone the repository: https://github.com/BenTsui2023/csis3380-final-project.git
+1. Clone the repository: 
 
 ```
-git clone 
+git clone https://github.com/BenTsui2023/csis3380-final-project.git
 ```
 
 3. Install dependencies:
