@@ -4,7 +4,7 @@ This project entails a <b>MERN application</b> designed specifically for <b>3380
 
 # Features
 - Combining data from TheMealDB API and self-creacted API to render **React card components** for meal items
-- Fading-in css effects on card rendering and floating css effects on card hovered
+- **Fading-in css effect** on card rendering and **floating css effect** on card hovered
 - Leverage on React state to create a **filter for user to search for desired items** based on names or prices
 - **Create user account** and **login user account** functions
 - Allow user to **add items to shopping cart** with specified quantities
