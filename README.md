@@ -28,7 +28,7 @@ HTML, CSS, JavaScript, React.js, Express.js, Node.js, MongoDB
 
 # Getting Started
 
-1. Clone the repository:
+1. Clone the repository: https://github.com/BenTsui2023/csis3380-final-project.git
 
 ```
 git clone 
