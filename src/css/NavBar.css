@@ -2,7 +2,6 @@
     list-style-type: none;
     display: flex;
     background-color: rgb(255, 228, 166);
-    width: 80%;
     height: 3rem;
     margin: auto;
     justify-content: space-around;
@@ -12,6 +11,7 @@
 .NavBar li {
     margin: auto 1rem;
     font-size: 1.25rem;
+    text-indent: -2.5rem;
 }
 
 .NavBar li a {
