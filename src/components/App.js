@@ -10,6 +10,7 @@ import Beef from "./Beef";
 import NotFound from "./NotFound";
 import ProductDetails from "./ProductDetails";
 import Users from "./Users";
+import ShoppingCart from "./ShoppingCart"
 import Filter from './Filter';
 import '../css/App.css';
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="/Pastas" element={<Pastas />} />
             <Route path="/Beef" element={<Beef />} />
             <Route path="/ProductDetails/:id" element={<ProductDetails />} />
+            <Route path="/shoppingcart" element={<ShoppingCart />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>

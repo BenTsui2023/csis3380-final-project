@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { NavLink } from 'react-router-dom';
 import '../css/User.css';
 
 const Users = () => {
@@ -72,6 +73,7 @@ const Users = () => {
           <h2>Welcome, {username} !</h2>
           <button onClick={Logout}>Logout</button>
           <button onClick={Get}>Get</button>
+          <NavLink to="/shoppingcart"><button>Go to Your Shopping Cart</button></NavLink>
         </div>
       ) : (
         <div>
