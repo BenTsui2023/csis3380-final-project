@@ -36,6 +36,11 @@ This project entails a <b>MERN application</b> designed specifically for <b>3380
 ```
 git clone https://github.com/BenTsui2023/csis3380-final-project.git
 ```
+2. Go to the directory:
+
+```
+cd .\csis3380-final-project\
+```
 
 3. Install dependencies:
 
