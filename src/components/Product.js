@@ -22,8 +22,7 @@ const Product = (props) => {
         <div className='wrapperForProductDesc' style={{ whiteSpace: "normal" }}>
           <ul style={{ listStyleType: "none", textIndent: "-2.5rem" }}>
             <li>{props.title}</li>
-            <li>{props.desc}</li>
-            <li>{props.price}</li>           
+            <li>Price: {props.price}</li>           
           </ul>
         </div>
       </div>

@@ -2,11 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Filter from './Filter';
 import Product from "./Product";
+import mealData from '../data/mealData.json';
 
 const Pastas = () => {
     const [pastaMealsData, setPastaMealsData] = useState([]);
-    const [mealPrice] = useState([{price: 10.3}, {price: 12.4}, {price: 7.2}, {price: 12.0}, {price: 23.4}, {price: 2.9}, {price: 12.6}, {price: 8.9}, {price: 7.6}, {price: 5.9}, {price: 15.9}, {price: 21.0}, {price: 17.3}, {price: 12.9}]);
-    const [pastaMealsDataWithPrice, setPastaMealsDataWithPrice] = useState([]);
+    const [pastaMealsDataWithMealInfo, setPastaMealsDataWithMealInfo] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
 
     useEffect(() => {
@@ -44,14 +44,14 @@ const Pastas = () => {
 
     useEffect(() => {
         // Combine mealData and mealPrice into a new array of objects
-        const newData = pastaMealsData.map((data, index) => ({...data, ...mealPrice[index]}));
-        setPastaMealsDataWithPrice(newData);
+        const newData = pastaMealsData.map((data, index) => ({...data, ...mealData.mealData.slice(20, 29)[index]}));
+        setPastaMealsDataWithMealInfo(newData);
         setFilteredData(newData)
-    }, [pastaMealsData, mealPrice]);
+    }, [pastaMealsData]);
     //console.log(filteredData)
 
     function handleFilterChange({ name, minPrice, maxPrice }) {
-        let newData = [...pastaMealsDataWithPrice];
+        let newData = [...pastaMealsDataWithMealInfo];
 
         if (name) {
         newData = newData.filter((item) =>
@@ -71,7 +71,7 @@ const Pastas = () => {
     }
 
     function handleReset() {
-        setFilteredData(pastaMealsDataWithPrice);
+        setFilteredData(pastaMealsDataWithMealInfo);
     }
 
     return(

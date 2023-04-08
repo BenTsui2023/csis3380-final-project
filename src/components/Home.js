@@ -2,12 +2,12 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Product from "./Product";
 import Filter from './Filter';
+import mealData from '../data/mealData.json';
 
 const Home = () => {
 
-  const [mealData, setMealData] = useState([]);
-  const [mealPrice] = useState([{ price: 10.3, description: "This is product A" }, { price: 12.4, description: "This is product A" }, { price: 7.2, description: "This is product A" }, { price: 12.0, description: "This is product A" }, { price: 23.4, description: "This is product A" }, { price: 2.9, description: "This is product A" }, { price: 12.6, description: "This is product A" }, { price: 8.9, description: "This is product A" }, { price: 7.6, description: "This is product A" }, { price: 5.9, description: "This is product A" }, { price: 15.9, description: "This is product A" }, { price: 21.0, description: "This is product A" }, { price: 17.3, description: "This is product A" }, { price: 12.9, description: "This is product A" }]);
-  const [mealDataWithPrice, setMealDataWithPrice] = useState([]);
+  const [allMealData, setAllMealData] = useState([]);
+  const [mealDataWithMealInfo, setMealDataWithMealInfo] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
@@ -17,12 +17,12 @@ const Home = () => {
         const dessertMealPromises = data.meals.slice(0, 10).map(meal =>
           fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`)
             .then(response => response.json())
-            .then(mealData => {
-              const { strMeal, strMealThumb, idMeal } = mealData.meals[0];
+            .then(allMealData => {
+              const { strMeal, strMealThumb, idMeal } = allMealData.meals[0];
               const ingredients = [];
               for (let i = 1; i <= 20; i++) {
-                if (mealData.meals[0][`strIngredient${i}`]) {
-                  ingredients.push(`${mealData.meals[0][`strIngredient${i}`]}`);
+                if (allMealData.meals[0][`strIngredient${i}`]) {
+                  ingredients.push(`${allMealData.meals[0][`strIngredient${i}`]}`);
                 }
               }
               const meal = { mealName: strMeal, mealImage: strMealThumb, mealId: idMeal, mealIngredients: ingredients };
@@ -36,12 +36,12 @@ const Home = () => {
             const beefMealPromises = data.meals.slice(0, 10).map(meal =>
               fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`)
                 .then(response => response.json())
-                .then(mealData => {
-                  const { strMeal, strMealThumb, idMeal } = mealData.meals[0];
+                .then(allMealData => {
+                  const { strMeal, strMealThumb, idMeal } = allMealData.meals[0];
                   const ingredients = [];
                   for (let i = 1; i <= 20; i++) {
-                    if (mealData.meals[0][`strIngredient${i}`]) {
-                      ingredients.push(`${mealData.meals[0][`strIngredient${i}`]}`);
+                    if (allMealData.meals[0][`strIngredient${i}`]) {
+                      ingredients.push(`${allMealData.meals[0][`strIngredient${i}`]}`);
                     }
                   }
                   const meal = { mealName: strMeal, mealImage: strMealThumb, mealId: idMeal, mealIngredients: ingredients };
@@ -55,12 +55,12 @@ const Home = () => {
                 const pastaMealPromises = data.meals.slice(0, 10).map(meal =>
                   fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`)
                     .then(response => response.json())
-                    .then(mealData => {
-                      const { strMeal, strMealThumb, idMeal } = mealData.meals[0];
+                    .then(allMealData => {
+                      const { strMeal, strMealThumb, idMeal } = allMealData.meals[0];
                       const ingredients = [];
                       for (let i = 1; i <= 20; i++) {
-                        if (mealData.meals[0][`strIngredient${i}`]) {
-                          ingredients.push(`${mealData.meals[0][`strIngredient${i}`]}`);
+                        if (allMealData.meals[0][`strIngredient${i}`]) {
+                          ingredients.push(`${allMealData.meals[0][`strIngredient${i}`]}`);
                         }
                       }
                       const meal = { mealName: strMeal, mealImage: strMealThumb, mealId: idMeal, mealIngredients: ingredients };
@@ -70,7 +70,7 @@ const Home = () => {
 
                 Promise.all([...dessertMealPromises, ...beefMealPromises, ...pastaMealPromises])
                   .then(data => {
-                    setMealData(data);
+                    setAllMealData(data);
                   })
                   .catch((error) => {
                     console.log('Error occurred while fetching meal data', error);
@@ -91,14 +91,14 @@ const Home = () => {
 
   useEffect(() => {
     // Combine mealData and mealPrice into a new array of objects
-    const newData = mealData.map((data, index) => ({ ...data, ...mealPrice[index] }));
-    setMealDataWithPrice(newData);
+    const newData = allMealData.map((data, index) => ({ ...data, ...mealData.mealData[index] }));
+    setMealDataWithMealInfo(newData);
     setFilteredData(newData)
-  }, [mealData, mealPrice]);
+  }, [allMealData]);
   console.log(filteredData)
 
   function handleFilterChange({ name, minPrice, maxPrice }) {
-    let newData = [...mealDataWithPrice];
+    let newData = [...mealDataWithMealInfo];
 
     if (name) {
       newData = newData.filter((item) =>
@@ -118,7 +118,7 @@ const Home = () => {
   }
 
   function handleReset() {
-    setFilteredData(mealDataWithPrice);
+    setFilteredData(mealDataWithMealInfo);
   }
 
   return (

@@ -2,13 +2,12 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Filter from './Filter';
 import Product from "./Product";
+import mealData from '../data/mealData.json';
 
 const Beef = () => {
     const [beefMealsData, setBeefMealsData] = useState([]);
-    const [mealPrice] = useState([{price: 10.3}, {price: 12.4}, {price: 7.2}, {price: 12.0}, {price: 23.4}, {price: 2.9}, {price: 12.6}, {price: 8.9}, {price: 7.6}, {price: 5.9}, {price: 15.9}, {price: 21.0}, {price: 17.3}, {price: 12.9}]);
-    const [beefMealsDataWithPrice, setbeefMealsDataWithPrice] = useState([]);
+    const [beefMealsDataWithMealInfo, setbeefMealsDataWithMealInfo] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
-
     useEffect(() => {
         fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=beef')
           .then(response => response.json())
@@ -44,14 +43,14 @@ const Beef = () => {
 
     useEffect(() => {
         // Combine mealData and mealPrice into a new array of objects
-        const newData = beefMealsData.map((data, index) => ({...data, ...mealPrice[index]}));
-        setbeefMealsDataWithPrice(newData);
+        const newData = beefMealsData.map((data, index) => ({...data, ...mealData.mealData.slice(10, 19)[index]}));
+        setbeefMealsDataWithMealInfo(newData);
         setFilteredData(newData)
-    }, [beefMealsData, mealPrice]);
+    }, [beefMealsData]);
     //console.log(filteredData)
 
     function handleFilterChange({ name, minPrice, maxPrice }) {
-        let newData = [...beefMealsDataWithPrice];
+        let newData = [...beefMealsDataWithMealInfo];
 
         if (name) {
         newData = newData.filter((item) =>
@@ -71,7 +70,7 @@ const Beef = () => {
     }
 
     function handleReset() {
-        setFilteredData(beefMealsDataWithPrice);
+        setFilteredData(beefMealsDataWithMealInfo);
     }
 
     return(

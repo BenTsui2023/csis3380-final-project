@@ -1,0 +1,120 @@
+{
+    "mealData": [
+        {
+            "price": 5.50,
+            "description": "Apam balik, a Malaysian pancake filled with sugar, peanuts, and cream corn."
+        },
+        {
+            "price": 8.75,
+            "description": "Apple & Blackberry Crumble, a traditional British dessert made with baked fruit and crumble topping."
+        },
+        {
+            "price": 12.30,
+            "description": "Apple Frangipan Tart, a French tart made with almond cream and thinly sliced apples."
+        },
+        {
+            "price": 9.25,
+            "description": "Bakewell tart, a British dessert consisting of a shortcrust pastry shell filled with jam, frangipane, and topped with almonds."
+        },
+        {
+            "price": 7.50,
+            "description": "Banana Pancakes, a fluffy pancake made with mashed bananas."
+        },
+        {
+            "price": 14.90,
+            "description": "Battenberg Cake, a British cake made from almond sponge cake covered in marzipan."
+        },
+        {
+            "price": 6.75,
+            "description": "BeaverTails, a Canadian pastry made of whole-wheat dough stretched to resemble a beaver's tail and topped with various toppings."
+        },
+        {
+            "price": 9.95,
+            "description": "Blackberry Fool, a traditional English dessert made by folding pureed fruit into whipped cream."
+        },
+        {
+            "price": 7.80,
+            "description": "Bread and Butter Pudding, a British dessert made with sliced bread, dried fruit, and a custard-like mixture."
+        },
+        {
+            "price": 11.50,
+            "description": "Budino Di Ricotta, an Italian dessert made with ricotta cheese and sugar, flavored with vanilla and lemon zest."
+        },
+        {
+            "price": 16.50,
+            "description": "Beef and Mustard Pie, a savory pie filled with beef, onions, mustard, and gravy."
+        },
+        {
+            "price": 19.25,
+            "description": "Beef and Oyster pie, a classic British pie made with beef, oysters, and a rich gravy."
+        },
+        {
+            "price": 14.75,
+            "description": "Beef Banh Mi Bowls with Sriracha Mayo, Carrot & Pickled Cucumber, a Vietnamese-inspired dish made with marinated beef, pickled vegetables, and spicy mayo."
+        },
+        {
+            "price": 22.50,
+            "description": "Beef Bourguignon, a French stew made with beef, red wine, onions, and mushrooms."
+        },
+        {
+            "price": 26.80,
+            "description": "Beef Brisket Pot Roast, a slow-cooked dish made with beef brisket, carrots, onions, and potatoes."
+        },
+        {
+            "price": 18.75,
+            "description": "Beef Dumpling Stew, a hearty stew made with tender beef, vegetables, and fluffy dumplings."
+        },
+        {
+            "price": 13.90,
+            "description": "Beef Lo Mein, a Chinese stir-fry dish made with tender beef, noodles, and vegetables."
+        },
+        {
+            "price": 20.25,
+            "description": "Beef Rendang, a spicy Indonesian curry made with tender beef, coconut milk, and a blend of aromatic spices."
+        },
+        {
+            "price": 17.50,
+            "description": "Beef stroganoff, a Russian dish made with sautéed beef, mushrooms, and sour cream sauce."
+        },
+        {
+            "price": 29.75,
+            "description": "Beef Sunday Roast, a traditional British meal made with roasted beef, potatoes, and vegetables, typically served on Sundays."
+        },
+        {
+            "price": 10.99,
+            "description": "Chilli prawn linguine, an Italian pasta dish made with prawns, garlic, and chili flakes."
+        },
+        {
+            "price": 12.99,
+            "description": "Fettuccine Alfredo, an Italian pasta dish made with fettuccine pasta and a creamy parmesan sauce."
+        },
+        {
+            "price": 12.99,
+            "description": "Fettucine alfredo, an Italian pasta dish made with fettuccine pasta and a creamy parmesan sauce."
+        },
+        {
+            "price": 8.99,
+            "description": "Grilled Mac and Cheese Sandwich, a classic sandwich filled with macaroni and cheese."
+        },
+        {
+            "price": 9.99,
+            "description": "Lasagna Sandwiches, a sandwich filled with layers of lasagna noodles, sauce, and cheese."
+        },
+        {
+            "price": 14.99,
+            "description": "Lasagne, an Italian pasta dish made with layers of pasta, meat, and cheese."
+        },
+        {
+            "price": 7.99,
+            "description": "Pilchard puttanesca, an Italian pasta dish made with tomato sauce, olives, capers, and pilchards."
+        },
+        {
+            "price": 11.99,
+            "description": "Spaghetti alla Carbonara, an Italian pasta dish made with spaghetti, pancetta, eggs, and cheese."
+        },
+        {
+            "price": 17.99,
+            "description": "Venetian Duck Ragu, an Italian pasta dish made with shredded duck meat in a tomato-based sauce."
+        }
+    ]
+}
