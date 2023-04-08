@@ -8,6 +8,7 @@ const Users = () => {
   const [userId, setUserId] = useState("");
   const [message, setMessage] = useState("");
   const [token, setToken] = useState("");
+  const [showLogin, setShowLogin] = useState(false);
 
   const Signup = () => {
     axios.post("http://localhost:3000/api/users/signup", { username, password })
@@ -38,6 +39,7 @@ const Users = () => {
 
   const Logout = () => {
     setLoggedIn(false);
+    setShowLogin(false);
     setUsername("");
     setPassword("");
   }
@@ -56,6 +58,12 @@ const Users = () => {
         console.log(error);
       });
   }
+
+  const ShowLoginSystem = () => {
+    setShowLogin(true);
+    setMessage("");
+  }
+
   return (
     <div>
         {loggedIn ? (
@@ -66,24 +74,33 @@ const Users = () => {
             </div>
         ):(
             <div>
-                <input
-                    className="login"
-                    type="text"
-                    placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <input
-                    className="login"
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                {message.length > 0 && <p> {message} </p>}
+                {showLogin ? (
+                    <div>
+                        <input
+                            className="login"
+                            type="text"
+                            placeholder="Username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+                        <input
+                            className="login"
+                            type="password"
+                            placeholder="Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        {message.length > 0 && <p> {message} </p>}
 
-                <button onClick={Signup}>Sign Up</button>
-                <button onClick={Login}>Login</button>
+                        <button onClick={Signup}>Sign Up</button>
+                        <button onClick={Login}>Login</button>
+                    </div>
+                    ):(
+                        <div>
+                            <button onClick={ShowLoginSystem}>My Account</button>
+                        </div>
+                    )
+                }
             </div>
         )}    
     </div>
