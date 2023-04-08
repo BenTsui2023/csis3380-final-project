@@ -1,4 +1,5 @@
 # CSIS3380 Final Project
+<img src="./doc/project_preview.png"  style="width: 700px">
 This project entails a MERN application designed specifically for "3380 Prairie Sky Cafe", where users are able to register an account and place orders. The system is also capable of keeping track of the user's previous orders.
 
 # Tech Stack
