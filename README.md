@@ -20,7 +20,8 @@ This project entails a <b>MERN application</b> designed specifically for <b>3380
 
 - **TheMealDB API** <br>
   https://www.themealdb.com/api.php
-- **Self-reacted API in JSON format**
+- **Self-reacted API in JSON format**<br>
+  <i>sample item structure:</i>
   ```
   {
       "descriptiveName": "Apam Balk = Malasian Sweet Peanut Pancake",
@@ -31,24 +32,24 @@ This project entails a <b>MERN application</b> designed specifically for <b>3380
 
 # Getting Started
 
-1. Clone the repository: 
+**1. Clone the repository:** 
 
 ```
 git clone https://github.com/BenTsui2023/csis3380-final-project.git
 ```
-2. Go to the directory:
+**2. Go to the directory:**
 
 ```
 cd .\csis3380-final-project\
 ```
 
-3. Install dependencies:
+**3. Install dependencies:**
 
 ```
 npm i
 ```
 
-4. Ready to run:
+**4. Ready to run:**
 
 ```
 npm start
