@@ -58,7 +58,7 @@ const ProductDetails = () => {
           <li>{state.description}</li>
           <li>Price: {state.price}</li>
         </ul>
-        <p>Ingredients used</p>
+        <p>Ingredients Used</p>
         <ol>
         {state.mealIngredients.map((ingredient, index) => (
           <li key={index}>{ingredient}</li>
