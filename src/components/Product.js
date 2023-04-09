@@ -12,6 +12,7 @@ const Product = (props) => {
         mealName: props.title,
         price: props.price,
         mealIngredients: props.ingredients,
+        mealId: props.id
       }
       }>
 

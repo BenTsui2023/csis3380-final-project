@@ -4,25 +4,73 @@ import orderedMeals from '../../models/orderedMealsModel.js';
 import User from '../../models/UsersModel.js'; 
 const router = Router();
 
-router.post('/', auth, (req, res) => { 
-    const { type, name } = req.body; 
-    if (!type || !name) { 
-        return res.status(400).send({ err: 'Type and Name are required' }); 
-    } 
-    const newOrderedMeals = new orderedMeals({ 
-        type: type, 
-        name: name, 
-        owner: req.user._id 
-    }); 
-    //Room for more code
-    newOrderedMeals.save(function (err, savedOrderedMeals) { 
-        if (err) return res.status(400).send({ err });
+router.get('/', async (req, res) => { 
+    const { username } = req.query;
+    const user = await User.findOne({ username: username }).exec();
+    if (!user) {
+        return res.status(404).json({ error: 'User not found' });
+    }
+    console.log(user.orderedMeals)
+    return res.status(200).json(user.orderedMeals);
+ });  
 
-        User.findByIdAndUpdate(req.user._id, { $push: { orderedMeals: savedOrderedMeals._id } }, 
-        function (err) { 
-            return res.send(savedOrderedMeals); 
-        }); 
-    });  
+
+
+// router.post('/add', async (req, res) => {
+//     const { mealName, quantity, username, mealId } = req.body;
+
+//     try {
+//         const orderedMeal = new orderedMeals({
+//         mealName: mealName,
+//         quantity: quantity,
+//         mealId: mealId
+//     });
+  
+//     const user = await User.findOne({ username: username }).exec();
+
+//     if (!user) {
+//         return res.status(404).json({ error: 'User not found' });
+//     }
+    
+//     if (!user.orderedMeals) {
+//         user.orderedMeals = [];
+//     }
+
+//     user.orderedMeals.push(orderedMeal);
+//     await user.save();
+
+//     res.json({ message: 'Ordered meal added successfully' });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'Server error' });
+//   }
+// });
+
+router.post('/add',auth,  (req, res) => {
+    const { mealName, quantity, mealId } = req.body;
+
+    try {
+        const orderedMeal = new orderedMeals({
+            mealName: mealName,
+            quantity: quantity,
+            mealId: mealId
+        });
+
+        const updatedUser =  User.findByIdAndUpdate(
+            { _id: req.user._id },
+            { $push: { orderedMeals: orderedMeal } },
+            { new: true }
+        ).exec();
+
+        if (!updatedUser) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        res.json({ message: 'Ordered meal added successfully' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Server error' });
+    }
 });
 
 export default router; 

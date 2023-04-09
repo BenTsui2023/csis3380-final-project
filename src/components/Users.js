@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { NavLink } from 'react-router-dom';
+import UserContext from '../context/user-context';
 import '../css/User.css';
 
 const Users = () => {
+  const context = useContext(UserContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
@@ -11,7 +13,7 @@ const Users = () => {
   const [message, setMessage] = useState("");
   const [token, setToken] = useState("");
   const [showLogin, setShowLogin] = useState(false);
-
+  
   const Signup = () => {
     axios.post("http://localhost:3000/api/users/signup", { username, password })
       .then((response) => {
@@ -28,10 +30,14 @@ const Users = () => {
     axios.post("http://localhost:3000/api/users/login", { username, password })
       .then((response) => {
         setMessage("");
-        console.log(response);
+        //console.log(response);
         setLoggedIn(true);
         setUserId(response.data._id);
+        //console.log(response.data.token);
         setToken(response.data.token);
+        context.changeLoginUser(username);
+        context.changeToken(response.data.token)
+        console.log(context.currentToken)
       })
       .catch((error) => {
         //console.log(error);
@@ -45,6 +51,7 @@ const Users = () => {
     setUsername("");
     setPassword("");
   }
+  
   const Get = () => {
     axios.get("http://localhost:3000/api/users/", {
       headers: {
@@ -109,8 +116,6 @@ const Users = () => {
       )}
     </div>
   )
-
-
 }
 
 export default Users;

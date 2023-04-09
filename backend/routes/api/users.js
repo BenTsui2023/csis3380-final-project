@@ -22,6 +22,8 @@ router.get('/:id', auth, (req, res) => {
     }); 
 }); 
 
+
+
 router.post('/signup', (req, res) => { 
     const { username, password } = req.body; 
     

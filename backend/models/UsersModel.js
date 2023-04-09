@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from 'bcrypt';
+import { orderedMealsSchema }  from './orderedMealsModel.js';
 
 // define Schema Class
 const Schema = mongoose.Schema;
@@ -18,7 +19,7 @@ function updatePassword(user, next) {
 const userSchema = new Schema({ 
     username: { type: String, required: true, index: { unique: true } },
     password: { type: String, required: true },
-    orderedMeals: [{ type: Schema.Types.ObjectId, ref: 'orderedMeals' }] 
+    orderedMeals: [orderedMealsSchema]
 });
 
 userSchema.pre('save', function (next) { 
@@ -26,6 +27,9 @@ userSchema.pre('save', function (next) {
 });
 
 userSchema.methods.comparePassword = function (password, next) { 
+    if (!this.password) {
+        return next(null, false);
+      }
     bcrypt.compare(password, this.password, function (err, isMatch) { 
         if (err) return next(err); 
         return next(null, isMatch); 

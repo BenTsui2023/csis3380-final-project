@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext,useState, useEffect } from 'react';
 import { useLocation } from "react-router-dom"
+import UserContext from '../context/user-context';
 import axios from 'axios';
 
 const ProductDetails = () => {
+  const context = useContext(UserContext);
   const { state } = useLocation();
   const [quantity, setQuantity] = useState(0);
   const [message, setMessage] = useState("");
+  //const [currentUser, setCurrentUser] = useState(context.loginUser);
+
+  // useEffect(() => {
+  //   setCurrentUser(context.loginUser);
+  // }, [context.loginUser]);
 
   const SubmitMeal = (e) => {
     e.preventDefault();
@@ -15,9 +22,28 @@ const ProductDetails = () => {
     else if(quantity == 1){
       setMessage(`${quantity} no of ${state.mealName} is added to your cart!`)
       }
-    // Call a function to send the quantity and meal name to the shopping cart
-    // You can pass these values as an object in a prop or dispatch an action to a redux store
+      //console.log(currentUser)
+      axios.post("http://localhost:3000/api/orderedMeals/add", { 
+        mealName: state.mealName, 
+        quantity,
+        mealId: state.mealId 
+      }, 
+      { 
+        headers: {
+          "Authorization": `Bearer ${context.currentToken}`,
+          'Content-Type': 'application/json'
+        } 
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        setMessage(error.response.data.err);
+      });
   }
+
+  
 
   const QuantityChange = (e) => {
     setQuantity(e.target.value);
