@@ -32,7 +32,7 @@ This project entails a <b>MERN application</b> designed specifically for <b>3380
   ```
 
 # Structural Map for Components
-<img src="./doc/structural_map.png"  style="width: 1000px">
+<img src="./doc/structural_map.png"  style="width: 1100px">
 
 # Getting Started
 
