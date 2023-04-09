@@ -14,9 +14,6 @@ app.use(cors());
 app.use(express.json());
 app.use('/api', apiRoutes);
 
-
-
-
 const port = process.env.PORT || 3000;
 
 //use your own mongodb atlas username and password to replace user and pw below 
