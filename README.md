@@ -25,7 +25,6 @@ This project entails a <b>MERN application</b> designed specifically for <b>3380
   <i>sample item structure:</i>
   ```
   {
-      "descriptiveName": "Apam Balk = Malasian Sweet Peanut Pancake",
       "price": 5.50,
       "description": "Apam balik, a Malaysian pancake filled with sugar, peanuts, and cream corn."
   }
