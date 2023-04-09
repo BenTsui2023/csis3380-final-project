@@ -18,7 +18,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <div className='header'><p>Prairie Sky Cafe</p></div>
+        <div className='header'><p>3380 Prairie Sky Cafe</p></div>
         <div className='users'>
         <Users />
         </div>
