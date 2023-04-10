@@ -75,12 +75,12 @@ const Users = () => {
   }
 
   return (
-    <div>
+    <div className="welcomeSet">
       {loggedIn ? (
         <div>
           <h2>Welcome, {username} !</h2>
-          <NavLink to="/"><button onClick={Logout}>Logout</button></NavLink>
-          <NavLink to="/shoppingcart"><button>View Cart</button></NavLink>
+          <NavLink to="/"><button className="userBtn" onClick={Logout}>Logout</button></NavLink>
+          <NavLink to="/shoppingcart"><button className="userBtn">View Cart</button></NavLink>
         </div>
       ) : (
         <div>

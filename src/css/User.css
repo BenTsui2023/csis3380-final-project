@@ -29,8 +29,9 @@
     display: inline-block;
     border: none;
     border-radius: 5px;
-    padding: 0.35rem 0.4rem;
+    padding: 0.3rem 0.4rem;
     margin-left: 0.5rem;
+    /* margin-top: 25px; */
     font-size: 0.7rem;
     font-weight: bold;
     color: #ffffff;
@@ -61,7 +62,7 @@
     border: none;
     border-radius: 5px;
     padding: 0.4rem 0.8rem;
-    margin: 0, 0.2rem;
+    margin: 0 0.2rem;
     font-size: 0.8rem;
     font-weight: bold;
     color: #ffffff;
@@ -83,7 +84,7 @@
 .login {
     border: 2px solid #ccc;
     border-radius: 5px;
-    margin: 0 0 0.1rem 0.2rem;
+    margin-bottom: 0.4rem;
     font-size: 1rem;
     height: 10px;
     transition: border-color 0.3s ease;
@@ -100,8 +101,41 @@ input[type="password"]:focus {
 }
 
 .userMessage {
-    margin: -5px;
-    padding-right: 5px;
+    display: block;
+    margin-top: -5px;
+    /* margin-bottom: -21px; */
+    text-align: right;
     line-height: 0%;
     font-style: italic;
+}
+
+.userBtn:hover {
+    background-color: #d75a3b;
+}
+
+.userBtn:active {
+    box-shadow: 0 1px 0 #ae4a31;
+    transform: translateY(2px);
+}
+
+.userBtn {
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    padding: 0.4rem 0.8rem;
+    margin: 0 0 0 0.4rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: rgb(255, 113, 47);
+    box-shadow: 0 3px 0 rgb(145, 43, 0);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    float: right;
+}
+
+h2 {
+    line-height: 0%;
+    margin-top: 3.5rem;
+    text-align: right;
 }
