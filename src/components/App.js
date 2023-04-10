@@ -16,7 +16,7 @@ import '../css/App.css';
 
 
 function App() {
-  const [loginUser, setLoginUser] = useState("tsui");
+  const [loginUser, setLoginUser] = useState("");
   //const [loginUserId, setLoginUserId] = useState("123");
   const [currentToken, setCurrentToken] = useState("");
   const [cartItems, setCartItems] = useState([]);
@@ -35,13 +35,13 @@ function App() {
   const changeCartItems = (newCartItem) => {
     setCartItems(newCartItem);
     console.log("changed");
-    console.log(cartItems);
+    //console.log(cartItems);
   };
 
   const changeToken = (newToken) => {
     setCurrentToken(newToken);
-    console.log("called");
-    console.log(currentToken);
+    console.log("called Token");
+    //console.log(currentToken);
   };
 
   const userContextValue = {

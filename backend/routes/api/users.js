@@ -14,13 +14,13 @@ router.get('/', auth, (req, res) => {
     }) 
 });
 
-router.get('/:id', auth, (req, res) => { 
-    const { id } = req.params; 
-    User.findById(id, function (err, userModel) { 
-        if (err) return res.status(400).send({ err }); 
-            return res.send(userModel); 
-    }); 
-}); 
+// router.get('/:id', auth, (req, res) => { 
+//     const { id } = req.params; 
+//     User.findById(id, function (err, userModel) { 
+//         if (err) return res.status(400).send({ err }); 
+//             return res.send(userModel); 
+//     }); 
+// }); 
 
 
 
