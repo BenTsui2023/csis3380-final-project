@@ -1,0 +1,79 @@
+.label {
+    margin-top: 3rem;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #e86c4f;
+}
+
+input {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    /* Add border radius */
+    font-size: 1.1rem;
+    /* Increase input text size */
+    transition: border-color 0.3s ease;
+}
+
+button {
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    padding: 0.4rem 0.8rem;
+    margin: 2rem 2rem 3rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: rgb(255, 113, 47);
+    box-shadow: 0 3px 0 rgb(145, 43, 0);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+label {
+    color: rgb(255, 113, 47);
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+ul li {
+    margin: 0.5rem;
+}
+
+#mealName {
+    font-size: 2rem;
+    font-weight: bolder;
+    color: rgb(255, 113, 47);
+    text-shadow: #ffe600 7px 4px;
+}
+
+#desc {
+    text-align: justify;
+    text-indent: 0rem;
+    margin-left: -0.5rem;
+    margin-right: 2rem;
+    margin-bottom: 0%;
+}
+
+#price {
+    color: rgb(255, 113, 47);
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.ingredients p {
+    color: rgb(255, 113, 47);
+    font-weight: bold;
+    line-height: 0%;
+    margin-top: 1rem;
+}
+
+.ingredients ol {
+    margin-top: -0.5rem;
+    margin-bottom: 2rem;
+}
+
+.ingredients li {
+    text-align: left;
+}

@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useLocation } from "react-router-dom"
 import UserContext from '../context/user-context';
 import axios from 'axios';
+import '../css/ProductDetails.css';
 
 const ProductDetails = () => {
   const context = useContext(UserContext);
@@ -89,17 +90,19 @@ const ProductDetails = () => {
     <div className='wrapperForProductDetails'>
       <label className="label"><img src={state.mealImage} className="label_image" alt='meal'></img></label>
       <div className='wrapperForProductDetailsDesc'>
-        <ul style={{ listStyleType: "none", textIndent: "-2.5rem" }}>
-          <li>{state.mealName}</li>
-          <li>{state.description}</li>
-          <li>Price: {state.price}</li>
+        <ul style={{ listStyleType: "none", textIndent: "-3rem" }}>
+          <li id='mealName'>{state.mealName}</li>
+          <li id='price'>Price: {state.price}</li>
+          <li id='desc'>{state.description}</li>
         </ul>
-        <p>Ingredients Used</p>
-        <ol>
-          {state.mealIngredients.map((ingredient, index) => (
-            <li key={index}>{ingredient}</li>
-          ))}
-        </ol>
+        <div className='ingredients'>
+          <p>Ingredients Used</p>
+          <ol>
+            {state.mealIngredients.map((ingredient, index) => (
+              <li key={index}>{ingredient}</li>
+            ))}
+          </ol>
+        </div>
         <form onSubmit={SubmitMeal}>
           <label>
             Quantity:{' '}
