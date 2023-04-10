@@ -21,7 +21,7 @@ This project entails a <b>MERN application</b> designed specifically for <b>3380
 
 - **TheMealDB API** <br>
   https://www.themealdb.com/api.php
-- **Self-reacted API in JSON format**<br>
+- **Self-creacted API in JSON format**<br>
   <i>sample item structure:</i>
   ```
   {
