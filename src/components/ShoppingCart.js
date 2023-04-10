@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import UserContext from '../context/user-context';
+import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import '../css/ShoppingCart.css';
 
@@ -108,6 +109,10 @@ const ShoppingCart = () => {
     return totalPrice.toFixed(2);
   };
 
+  function confirmPayment(){
+    alert("Thanks for ordering!")
+}
+
   return (
     <div className='wrapperForShoppingCart'>
       <h1>Your Shopping Cart</h1>
@@ -146,6 +151,9 @@ const ShoppingCart = () => {
           <tr>
             <td colSpan="2" className='cartSummary'>Total Price:</td>
             <td colSpan="2" className='cartSummary'>${calculateTotalPrice()}</td>
+          </tr>
+          <tr>
+          <td colSpan="2" className='cartSummary'><NavLink to="/"><button className='actionBtn' onClick={() => confirmPayment()}>Confirm</button></NavLink></td>
           </tr>
         </tfoot>
       </table>
