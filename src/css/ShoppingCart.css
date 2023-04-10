@@ -1,8 +1,29 @@
+.wrapperForShoppingCart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: rgb(255, 247, 233);
+    box-shadow: 5px 5px #888888
+}
+
+@media screen and (max-width: 1100px) {
+    .wrapperForShoppingCart {
+        width: 98%;
+    }
+}
+
 h1 {
     color: rgb(255, 113, 47);
 }
 
 table {
+    margin: 0 2rem;
     text-align: left;
 }
 
@@ -11,7 +32,7 @@ th {
 }
 
 td {
-    padding: 1rem 5rem 1rem 0;
+    padding: 1rem 4rem 1rem 0;
 }
 
 .cartSummary {

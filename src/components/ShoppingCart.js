@@ -109,7 +109,7 @@ const ShoppingCart = () => {
   };
 
   return (
-    <div className='wrapperForProductDetails'>
+    <div className='wrapperForShoppingCart'>
       <h1>Your Shopping Cart</h1>
       <table>
         <thead>
