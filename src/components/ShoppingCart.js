@@ -5,18 +5,12 @@ import axios from 'axios';
 import '../css/ShoppingCart.css';
 
 const ShoppingCart = () => {
-  const [cartItems, setCartItems] = useState([]);
-
   const context = useContext(UserContext);
 
   useEffect(() => {
-    console.log("hi")
-    console.log(context.loginUser)
     axios
       .get('http://localhost:3000/api/orderedMeals/', { params: { username: context.loginUserY } })
       .then((response) => {
-        console.log("HI")
-        console.log(response.data)
         context.changeCartItems(response.data)
       })
       .catch((error) => {
@@ -106,8 +100,25 @@ const ShoppingCart = () => {
     return totalPrice.toFixed(2);
   };
 
-  function confirmPayment(){
+  const confirmPayment = () => {
     alert("Thanks for ordering!")
+
+    context.changeCartItems([]);
+
+    axios.delete("http://localhost:3000/api/orderedMeals/deleteCart",
+      {
+        headers: {
+          "Authorization": `Bearer ${context.currentToken}`,
+          'Content-Type': 'application/json'
+        }
+      })
+      .then((response) => {
+        console.log(response.data);
+
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 }
 
   return (

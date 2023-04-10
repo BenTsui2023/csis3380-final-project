@@ -42,7 +42,7 @@ const Beef = () => {
   }, []);
 
   useEffect(() => {
-    // Combine mealData and mealPrice into a new array of objects
+    // Combine mealData and mealInfo into a new array of objects
     const newData = beefMealsData.map((data, index) => ({ ...data, ...mealData.mealData.slice(10, 19)[index] }));
     setbeefMealsDataWithMealInfo(newData);
     setFilteredData(newData)

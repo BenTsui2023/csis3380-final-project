@@ -43,7 +43,7 @@ const Pastas = () => {
   }, []);
 
   useEffect(() => {
-    // Combine mealData and mealPrice into a new array of objects
+    // Combine mealData and mealInfo into a new array of objects
     const newData = pastaMealsData.map((data, index) => ({ ...data, ...mealData.mealData.slice(20, 29)[index] }));
     setPastaMealsDataWithMealInfo(newData);
     setFilteredData(newData)

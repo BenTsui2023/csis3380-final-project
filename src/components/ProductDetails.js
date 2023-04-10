@@ -20,13 +20,9 @@ const ProductDetails = () => {
       e.preventDefault();
       setMessage(`Product: ${state.mealName} added to your cart!`)
 
-      console.log(state.price)
-      console.log(context.cartItems)
-
       const itemIndex = context.cartItems.findIndex(
         (meal) => meal.mealId === state.mealId
       );
-      console.log(itemIndex)
 
       if (itemIndex === -1) {
         context.changeCartItems([...context.cartItems, { mealName: state.mealName, quantity: quantity, mealId: state.mealId, price: state.price }]);
@@ -45,7 +41,6 @@ const ProductDetails = () => {
           })
           .then((response) => {
             console.log(response.data);
-
           })
           .catch((error) => {
             console.log(error);
@@ -54,11 +49,8 @@ const ProductDetails = () => {
       }
       else {
         const newCart = [...context.cartItems];
-        newCart[itemIndex].quantity = newCart[itemIndex].quantity + quantity;
-        //console.log(typeof quantity) 
+        newCart[itemIndex].quantity = newCart[itemIndex].quantity + quantity; 
         context.changeCartItems(newCart);
-        console.log("new cart")
-        console.log(context.cartItems)
 
         axios.post("http://localhost:3000/api/orderedMeals/addItem", {
           quantity: context.cartItems[itemIndex].quantity,

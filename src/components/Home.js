@@ -90,7 +90,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    // Combine mealData and mealPrice into a new array of objects
+    // Combine mealData and mealInfo into a new array of objects
     const newData = allMealData.map((data, index) => ({ ...data, ...mealData.mealData[index] }));
     setMealDataWithMealInfo(newData);
     setFilteredData(newData)

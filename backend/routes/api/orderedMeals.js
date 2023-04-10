@@ -85,4 +85,23 @@ router.post('/updateCart', auth, async (req, res) => {
     }
 });
 
+router.delete('/deleteCart', auth, async (req, res) => {
+    try {
+      const updatedUser = await User.findOneAndUpdate(
+        { _id: req.user._id },
+        { $set: { orderedMeals: [] } },
+        { new: true }
+      ).exec();
+  
+      if (!updatedUser) {
+        return res.status(404).json({ error: 'User not found' });
+      }
+  
+      res.json({ message: 'Order confirmed successfully' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Server error' });
+    }
+  });
+
 export default router; 

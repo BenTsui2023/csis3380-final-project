@@ -23,8 +23,6 @@ function App() {
 
   const changeLoginUser = (newUsername) => {
     setLoginUser(newUsername);
-    console.log("called");
-    console.log(loginUser);
   };
 
   const changeCartItems = (newCartItem) => {
