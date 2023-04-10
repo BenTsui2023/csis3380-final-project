@@ -38,11 +38,11 @@ function Filter({ onFilterChange, onReset }) {
       </div>
       <div>
         <label htmlFor="minPrice">Min Price: </label>
-        <input className="filter-input" type="number" id="minPrice" value={minPrice} onChange={handleMinPriceChange} />
+        <input className="filter-input" type="number" min="1" id="minPrice" value={minPrice} onChange={handleMinPriceChange} />
       </div>
       <div>
         <label htmlFor="maxPrice">Max Price: </label>
-        <input className="filter-input" type="number" id="maxPrice" value={maxPrice} onChange={handleMaxPriceChange} />
+        <input className="filter-input" type="number" min="1" id="maxPrice" value={maxPrice} onChange={handleMaxPriceChange} />
       </div>
       <div>
         <button className="button" type="reset" onClick={handleReset}>Reset</button>
