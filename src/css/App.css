@@ -73,6 +73,10 @@
   animation: fadeIn 1s ease-in-out forwards;
 }
 
+.wrapperForProduct img {
+  margin-top: 1rem;
+}
+
 .wrapperForProduct:hover {
   transform: scale(1.05);
 }
@@ -194,9 +198,4 @@
 
 .wrapperForProductDetailsDesc img {
   margin: auto;
-}
-
-.wrapperForProductDetails .message {
-  color: red;
-  font-size: 1.3rem;
 }

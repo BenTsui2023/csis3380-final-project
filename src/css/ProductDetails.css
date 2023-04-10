@@ -1,13 +1,13 @@
-.label {
-    margin-top: 3rem;
+.wrapperForProductDetails .label {
+    margin-top: 2rem;
 }
 
-input[type="number"]:focus {
+.wrapperForProductDetails input[type="number"]:focus {
     outline: none;
     border-color: #e86c4f;
 }
 
-input {
+.wrapperForProductDetails input {
     border: 2px solid #ccc;
     border-radius: 5px;
     /* Add border radius */
@@ -16,12 +16,12 @@ input {
     transition: border-color 0.3s ease;
 }
 
-button {
+.wrapperForProductDetails button {
     display: inline-block;
     border: none;
     border-radius: 5px;
     padding: 0.4rem 0.8rem;
-    margin: 2rem 2rem 3rem 2rem;
+    margin: 2rem 2rem 2rem 2rem;
     font-size: 1rem;
     font-weight: bold;
     color: #ffffff;
@@ -31,13 +31,13 @@ button {
     transition: background-color 0.3s ease;
 }
 
-label {
+.wrapperForProductDetails label {
     color: rgb(255, 113, 47);
     font-size: 1.3rem;
     font-weight: bold;
 }
 
-ul li {
+.wrapperForProductDetails ul li {
     margin: 0.5rem;
 }
 
@@ -76,4 +76,9 @@ ul li {
 
 .ingredients li {
     text-align: left;
+}
+
+.wrapperForProductDetails .message {
+    color: red;
+    font-size: 1.3rem;
 }
