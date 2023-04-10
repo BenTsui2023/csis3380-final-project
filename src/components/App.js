@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import NavBar from "./NavBar";
@@ -29,17 +29,14 @@ function App() {
 
   const changeCartItems = (newCartItem) => {
     setCartItems(newCartItem);
-    console.log("changed");
   };
 
   const changeToken = (newToken) => {
     setCurrentToken(newToken);
-    console.log("called Token");
   };
 
   const changeLoginState = (newState) => {
     setLoggedInSucceed(newState);
-    console.log("changed state");
   };
 
   const userContextValue = {
