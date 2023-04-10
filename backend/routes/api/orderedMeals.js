@@ -65,4 +65,25 @@ router.post('/addItem',auth, async (req, res) => {
     }
 });
 
+router.post('/updateCart', auth, async (req, res) => {
+    const { newCart } = req.body;
+  
+    try {
+      const updatedUser = await User.findByIdAndUpdate(
+        { _id: req.user._id },
+        { $set: { "orderedMeals" : newCart } },
+        { new: true }
+      ).exec();
+  
+      if (!updatedUser) {
+        return res.status(404).json({ error: 'User not found' });
+      }
+  
+      res.json({ message: 'Cart updated successfully' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Server error' });
+    }
+  });
+
 export default router; 

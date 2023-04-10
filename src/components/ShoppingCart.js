@@ -11,7 +11,7 @@ const ShoppingCart = () => {
         console.log("hi")
         console.log(context.loginUser)
         axios
-          .get('http://localhost:3000/api/orderedMeals/', {params:{username: context.loginUser}})
+          .get('http://localhost:3000/api/orderedMeals/', {params:{username: context.loginUserY}})
           .then((response) => {
             //setCartItems(response.data);
             console.log("HI")
@@ -25,6 +25,80 @@ const ShoppingCart = () => {
           });
     }, []);
 
+    const removeItem = (index) => {
+      const newCartItems = [...context.cartItems];
+      newCartItems.splice(index, 1);
+      context.changeCartItems(newCartItems);
+
+      axios.post("http://localhost:3000/api/orderedMeals/updateCart", 
+      { 
+        newCart: newCartItems 
+      }, 
+      { 
+      headers: {
+        "Authorization": `Bearer ${context.currentToken}`,
+        'Content-Type': 'application/json'
+      } 
+    })
+    .then((response) => {
+      console.log(response.data);
+      
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    };
+  
+    const incrementQuantity = (index) => {
+      const newCartItems = [...context.cartItems];
+      newCartItems[index].quantity++;
+      context.changeCartItems(newCartItems);
+
+      axios.post("http://localhost:3000/api/orderedMeals/updateCart", 
+      { 
+        newCart: newCartItems 
+      }, 
+      { 
+      headers: {
+        "Authorization": `Bearer ${context.currentToken}`,
+        'Content-Type': 'application/json'
+      } 
+    })
+    .then((response) => {
+      console.log(response.data);
+      
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    };
+  
+    const decrementQuantity = (index) => {
+      const newCartItems = [...context.cartItems];
+      if (newCartItems[index].quantity > 1) {
+        newCartItems[index].quantity--;
+        context.changeCartItems(newCartItems);
+      }
+
+      axios.post("http://localhost:3000/api/orderedMeals/updateCart", 
+      { 
+        newCart: newCartItems 
+      }, 
+      { 
+      headers: {
+        "Authorization": `Bearer ${context.currentToken}`,
+        'Content-Type': 'application/json'
+      } 
+    })
+    .then((response) => {
+      console.log(response.data);
+      
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    };
+    
     const calculateTotalPrice = () => {
       let totalPrice = 0;
       for (let i = 0; i < context.cartItems.length; i++) {
@@ -36,12 +110,6 @@ const ShoppingCart = () => {
     return(
         <div>
             <h1>Your Shopping Cart</h1>
-            {/* {context.cartItems.map((item, index) => (
-                
-                <p key= {index}>{item.mealName} Quantity: {item.quantity}</p>
-                
-            ))}
-            <h1>cartItems[0].mealName</h1> */}
             <table>
               <thead>
                 <tr>
@@ -52,23 +120,23 @@ const ShoppingCart = () => {
                 </tr>
               </thead>
               <tbody>
-                {context.cartItems.map((meal) => (
-                  <tr key={meal.mealId}>
+                {context.cartItems.map((meal, index) => (
+                  <tr key={index}>
                     <td>{meal.mealName}</td>
                     <td>{meal.quantity}</td>
                     <td>{meal.price}</td>
-                    <td>
-                      {/* <button onClick={() => handleRemoveMeal(meal.id)}>Remove</button>
-                      <button onClick={() => handleIncrementMeal(meal.id)}>+</button>
+                    <td>                                          
                       <button
                         onClick={() =>
                           meal.quantity > 1
-                            ? handleDecrementMeal(meal.id)
-                            : handleRemoveMeal(meal.id)
+                            ? decrementQuantity(index)
+                            : removeItem(index)
                         }
                       >
                         -
-                      </button> */}
+                      </button>
+                      <button onClick={() => incrementQuantity(index)}>+</button>
+                      <button onClick={() => removeItem(index)}>Remove</button>
                     </td>
                   </tr>
                 ))}

@@ -74,22 +74,6 @@ const Users = () => {
     context.changeCartItems([])
     console.log(context.cartItems)
   }
-  
-  const Get = () => {
-    axios.get("http://localhost:3000/api/users/", {
-      headers: {
-        "Authorization": `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      }
-    })
-      .then((response) => {
-
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
 
   const ShowLoginSystem = () => {
     setShowLogin(true);
@@ -102,8 +86,7 @@ const Users = () => {
         <div>
           <h2>Welcome, {username} !</h2>
           <NavLink to="/"><button onClick={Logout}>Logout</button></NavLink>
-          <button onClick={Get}>Get</button>
-          <NavLink to="/shoppingcart"><button>Go to Your Shopping Cart</button></NavLink>
+          <NavLink to="/shoppingcart"><button>View Cart</button></NavLink>
         </div>
       ) : (
         <div>
