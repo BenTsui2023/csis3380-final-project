@@ -127,7 +127,7 @@ const ShoppingCart = () => {
               <td>{meal.quantity}</td>
               <td>{meal.price}</td>
               <td>
-                <button
+                <button className='actionBtn'
                   onClick={() =>
                     meal.quantity > 1
                       ? decrementQuantity(index)
@@ -136,8 +136,8 @@ const ShoppingCart = () => {
                 >
                   -
                 </button>
-                <button onClick={() => incrementQuantity(index)}>+</button>
-                <button onClick={() => removeItem(index)}>Remove</button>
+                <button className='actionBtn' onClick={() => incrementQuantity(index)}>+</button>
+                <button className='actionBtn' onClick={() => removeItem(index)}>Remove</button>
               </td>
             </tr>
           ))}
