@@ -95,7 +95,6 @@ const Home = () => {
     setMealDataWithMealInfo(newData);
     setFilteredData(newData)
   }, [allMealData]);
-  //console.log(filteredData)
 
   function handleFilterChange({ name, minPrice, maxPrice }) {
     let newData = [...mealDataWithMealInfo];

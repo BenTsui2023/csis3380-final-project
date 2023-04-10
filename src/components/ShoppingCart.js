@@ -14,12 +14,9 @@ const ShoppingCart = () => {
     axios
       .get('http://localhost:3000/api/orderedMeals/', { params: { username: context.loginUserY } })
       .then((response) => {
-        //setCartItems(response.data);
         console.log("HI")
         console.log(response.data)
         context.changeCartItems(response.data)
-        //console.log(response.data);
-        //console.log(context.cartItems)
       })
       .catch((error) => {
         console.log(error);
