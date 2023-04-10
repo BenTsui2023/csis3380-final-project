@@ -191,7 +191,7 @@
   margin: auto;
 }
 
-/* .wrapperForProductDesc p {
-  margin-top: 0.1em;
-  margin-bottom: 0.1em;
-} */
+.wrapperForProductDetails .message {
+  color: red;
+  font-size: 1.3rem;
+}

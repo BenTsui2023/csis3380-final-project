@@ -1,4 +1,4 @@
-import React, { useContext,useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useLocation } from "react-router-dom"
 import UserContext from '../context/user-context';
 import axios from 'axios';
@@ -10,75 +10,75 @@ const ProductDetails = () => {
   const [message, setMessage] = useState("");
 
   const SubmitMeal = (e) => {
-    if(context.loggedInSucceed == false){
+    if (context.loggedInSucceed == false) {
       e.preventDefault();
       setMessage("Please log in to add items to your cart.");
       return;
     }
-    else{
+    else {
       e.preventDefault();
       setMessage(`Product: ${state.mealName} added to your cart!`)
 
       console.log(state.price)
       console.log(context.cartItems)
 
-      const itemIndex = context.cartItems.findIndex( 
-        (meal) => meal.mealId === state.mealId 
+      const itemIndex = context.cartItems.findIndex(
+        (meal) => meal.mealId === state.mealId
       );
       console.log(itemIndex)
-      
-      if (itemIndex === -1) { 
+
+      if (itemIndex === -1) {
         context.changeCartItems([...context.cartItems, { mealName: state.mealName, quantity: quantity, mealId: state.mealId, price: state.price }]);
-        
-        axios.post("http://localhost:3000/api/orderedMeals/addNewItem", { 
-          mealName: state.mealName, 
+
+        axios.post("http://localhost:3000/api/orderedMeals/addNewItem", {
+          mealName: state.mealName,
           quantity,
           mealId: state.mealId,
           price: state.price
-        }, 
-        { 
-          headers: {
-            "Authorization": `Bearer ${context.currentToken}`,
-            'Content-Type': 'application/json'
-          } 
-        })
-        .then((response) => {
-          console.log(response.data);
-          
-        })
-        .catch((error) => {
-          console.log(error);
-          setMessage(error.response.data.err);
-        });
-      } 
-      else {  
+        },
+          {
+            headers: {
+              "Authorization": `Bearer ${context.currentToken}`,
+              'Content-Type': 'application/json'
+            }
+          })
+          .then((response) => {
+            console.log(response.data);
+
+          })
+          .catch((error) => {
+            console.log(error);
+            setMessage(error.response.data.err);
+          });
+      }
+      else {
         const newCart = [...context.cartItems];
         newCart[itemIndex].quantity = newCart[itemIndex].quantity + quantity;
         //console.log(typeof quantity) 
-        context.changeCartItems( newCart );
+        context.changeCartItems(newCart);
         console.log("new cart")
         console.log(context.cartItems)
 
-        axios.post("http://localhost:3000/api/orderedMeals/addItem", {  
-        quantity: context.cartItems[itemIndex].quantity ,
-        mealId: state.mealId
-      }, 
-      { 
-        headers: {
-          "Authorization": `Bearer ${context.currentToken}`,
-          'Content-Type': 'application/json'
-        } 
-      })
-      .then((response) => {
-        console.log(response.data);
-        
-      })
-      .catch((error) => {
-        console.log(error);
-        setMessage(error.response.data.err);
-      });
-      } 
-    
+        axios.post("http://localhost:3000/api/orderedMeals/addItem", {
+          quantity: context.cartItems[itemIndex].quantity,
+          mealId: state.mealId
+        },
+          {
+            headers: {
+              "Authorization": `Bearer ${context.currentToken}`,
+              'Content-Type': 'application/json'
+            }
+          })
+          .then((response) => {
+            console.log(response.data);
+
+          })
+          .catch((error) => {
+            console.log(error);
+            setMessage(error.response.data.err);
+          });
+      }
+
     }
   }
   const QuantityChange = (e) => {
@@ -96,9 +96,9 @@ const ProductDetails = () => {
         </ul>
         <p>Ingredients Used</p>
         <ol>
-        {state.mealIngredients.map((ingredient, index) => (
-          <li key={index}>{ingredient}</li>
-        ))}
+          {state.mealIngredients.map((ingredient, index) => (
+            <li key={index}>{ingredient}</li>
+          ))}
         </ol>
         <form onSubmit={SubmitMeal}>
           <label>
@@ -107,7 +107,9 @@ const ProductDetails = () => {
           </label>
           <button type="submit">Add to cart</button>
         </form>
-        {message.length > 0 && <p> {message} </p>}
+        <div className='message'>
+          {message.length > 0 && <p> {message} </p>}
+        </div>
       </div>
     </div>
   )
