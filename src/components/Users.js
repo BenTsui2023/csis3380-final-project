@@ -39,10 +39,11 @@ const Users = () => {
         console.log(username)
         context.changeLoginUser(username);
         context.changeToken(response.data.token)
+        context.changeLoginState(true)
         console.log("HII")
         console.log(context.loginUser)
         console.log(context.currentToken)
-        setLoggedInSucceed(true)
+        //setLoggedInSucceed(true)
       })
       .catch((error) => {
         //console.log(error);
@@ -68,7 +69,7 @@ const Users = () => {
     setShowLogin(false);
     setUsername("");
     setPassword("");
-    setLoggedInSucceed(false)
+    context.changeLoginState(false)
     context.changeLoginUser("")
     context.changeToken("")
     context.changeCartItems([])

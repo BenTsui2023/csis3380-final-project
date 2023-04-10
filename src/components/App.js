@@ -20,6 +20,7 @@ function App() {
   //const [loginUserId, setLoginUserId] = useState("123");
   const [currentToken, setCurrentToken] = useState("");
   const [cartItems, setCartItems] = useState([]);
+  const [loggedInSucceed, setLoggedInSucceed] = useState(false);
 
   const changeLoginUser = (newUsername) => {
     setLoginUser(newUsername);
@@ -44,15 +45,23 @@ function App() {
     //console.log(currentToken);
   };
 
+  const changeLoginState = (newState) => {
+    setLoggedInSucceed(newState);
+    console.log("changed state");
+    //console.log(currentToken);
+  };
+
   const userContextValue = {
     loginUser,
     //loginUserId,
     currentToken,
     cartItems,
+    loggedInSucceed,
     changeLoginUser,
     //changeLoginUserId
     changeToken,
-    changeCartItems
+    changeCartItems,
+    changeLoginState
   };
 
   return (
