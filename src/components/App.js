@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 import NavBar from "./NavBar";
 import Home from "./Home";
@@ -52,7 +53,7 @@ function App() {
     <UserContext.Provider value={userContextValue}>
       <BrowserRouter>
         <div className="App">
-          <div className='header'><p>3380 Prairie Sky Cafe</p></div>
+          <div className='header'><NavLink to="/" style={{ textDecoration: 'none', color: 'rgb(255, 113, 47)' }}>3380 Prairie Sky Cafe</NavLink></div>
           <div className='users'>
             <Users />
           </div>

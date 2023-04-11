@@ -5,13 +5,14 @@
     position: fixed;
     align-items: center;
     min-height: 20rem;
-    background-color: #f5f5f5; /* add a light background color */
-    border: 3px solid black;
+    background-color: rgba(221, 221, 221, 0.3);
+    /* add a light background color */
+    border: 1px solid rgb(255, 113, 47);
     border-radius: 20px;
     padding: 10px;
-    } 
+}
 
-    .button {
+.button {
     display: inline-block;
     border: none;
     border-radius: 5px;
@@ -20,42 +21,38 @@
     font-size: 1rem;
     font-weight: bold;
     color: #ffffff;
-    background-color: #f57c00; /* use a warm orange color /
-    box-shadow: 0 3px 0 #a84300; / use a darker shade of orange for the box-shadow */
+    background-color: rgb(255, 113, 47);
+    box-shadow: 0 3px 0 rgb(145, 43, 0);
     cursor: pointer;
     transition: background-color 0.3s ease;
-    }
-    
-    .button:hover {
-    background-color: #bf4d00; /* use a slightly darker shade of orange on hover */
-    }
-    
-    .button:active {
-    box-shadow: 0 1px 0 #8f3900; /* use an even darker shade of orange on active */
+}
+
+.button:hover {
+    background-color: #bf4d00;
+}
+
+.button:active {
+    box-shadow: 0 1px 0 #8f3900;
     transform: translateY(2px);
-    }
-    
-    label {
+}
+
+label {
     font-size: 1.2rem;
-    /* Increase label text size /
     display: block;
     margin-bottom: 5px;
-    color: #333; / use a dark gray color for labels */
-    }
-    
-    .filter-input {
+}
+
+.filter-input {
     border: 2px solid #ccc;
     border-radius: 5px;
-    /* Add border radius /
-    padding: 10px;
+    padding: 5px;
+    margin: 0 1rem;
     font-size: 1.2rem;
-    / Increase input text size /
     transition: border-color 0.3s ease;
-    color: #333; / use a dark gray color for input text */
-    }
-    
-    input[type="text"]:focus,
-    input[type="number"]:focus {
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
     outline: none;
     border-color: #e86c4f;
-    }
+}
