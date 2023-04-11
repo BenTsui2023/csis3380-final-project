@@ -9,7 +9,7 @@ const ShoppingCart = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/api/orderedMeals/', { params: { username: context.loginUser }, 
+      .get('http://localhost:4000/api/orderedMeals/', { params: { username: context.loginUser }, 
         headers: {
           "Authorization": `Bearer ${context.currentToken}`,
           'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ const ShoppingCart = () => {
     newCartItems.splice(index, 1);
     context.changeCartItems(newCartItems);
 
-    axios.post("http://localhost:3000/api/orderedMeals/updateCart",
+    axios.post("http://localhost:4000/api/orderedMeals/updateCart",
       {
         newCart: newCartItems
       },
@@ -52,7 +52,7 @@ const ShoppingCart = () => {
     newCartItems[index].quantity++;
     context.changeCartItems(newCartItems);
 
-    axios.post("http://localhost:3000/api/orderedMeals/updateCart",
+    axios.post("http://localhost:4000/api/orderedMeals/updateCart",
       {
         newCart: newCartItems
       },
@@ -78,7 +78,7 @@ const ShoppingCart = () => {
       context.changeCartItems(newCartItems);
     }
 
-    axios.post("http://localhost:3000/api/orderedMeals/updateCart",
+    axios.post("http://localhost:4000/api/orderedMeals/updateCart",
       {
         newCart: newCartItems
       },
@@ -110,7 +110,7 @@ const ShoppingCart = () => {
 
     context.changeCartItems([]);
 
-    axios.delete("http://localhost:3000/api/orderedMeals/deleteCart",
+    axios.delete("http://localhost:4000/api/orderedMeals/deleteCart",
       {
         headers: {
           "Authorization": `Bearer ${context.currentToken}`,
