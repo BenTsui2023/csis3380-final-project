@@ -1,5 +1,4 @@
 import React from 'react';
-import ProductDetails from './ProductDetails';
 import { NavLink } from 'react-router-dom';
 
 const Product = (props) => {
@@ -17,13 +16,11 @@ const Product = (props) => {
       }>
 
       <div className='wrapperForProduct'>
-        {/* <div className='wrapperForProductImage'> */}
         <label className="label"><img src={props.image} className="label_image" alt='meal'></img></label>
-        {/* </div> */}
         <div className='wrapperForProductDesc' style={{ whiteSpace: "normal" }}>
           <ul style={{ listStyleType: "none", textIndent: "-2.5rem" }}>
             <li>{props.title}</li>
-            <li>Price: {props.price}</li>           
+            <li>Price: {props.price}</li>
           </ul>
         </div>
       </div>

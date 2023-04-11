@@ -9,12 +9,9 @@ const Users = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
-  //const [userId, setUserId] = useState("");
   const [message, setMessage] = useState("");
-  const [token, setToken] = useState("");
   const [showLogin, setShowLogin] = useState(false);
-  const [loggedInSucceed, setLoggedInSucceed] = useState(false);
-  
+
   const Signup = () => {
     axios.post("http://localhost:3000/api/users/signup", { username, password })
       .then((response) => {
@@ -22,7 +19,6 @@ const Users = () => {
         console.log(response);
       })
       .catch((error) => {
-        //console.log(error);
         setMessage(error.response.data.err);
       });
   };
@@ -31,36 +27,24 @@ const Users = () => {
     axios.post("http://localhost:3000/api/users/login", { username, password })
       .then((response) => {
         setMessage("");
-        //console.log(response);
         setLoggedIn(true);
-        //setUserId(response.data._id);
-        //console.log(response.data.token);
-        setToken(response.data.token);
-        console.log(username)
         context.changeLoginUser(username);
         context.changeToken(response.data.token)
-        console.log("HII")
-        console.log(context.loginUser)
-        console.log(context.currentToken)
-        setLoggedInSucceed(true)
+        context.changeLoginState(true)
       })
       .catch((error) => {
-        //console.log(error);
         setMessage(error.response.data.err);
       })
-      .then(() =>{
-          axios
-            .get('http://localhost:3000/api/orderedMeals/', {params:{username: username}})
-            .then((response) => {
-              console.log(username)
-              context.changeCartItems(response.data)
-              console.log("HAAA");
-              console.log(context.loginUser)
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-        })            
+      .then(() => {
+        axios
+          .get('http://localhost:3000/api/orderedMeals/', { params: { username: username } })
+          .then((response) => {
+            context.changeCartItems(response.data)
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
   };
 
   const Logout = () => {
@@ -68,11 +52,10 @@ const Users = () => {
     setShowLogin(false);
     setUsername("");
     setPassword("");
-    setLoggedInSucceed(false)
+    context.changeLoginState(false)
     context.changeLoginUser("")
     context.changeToken("")
     context.changeCartItems([])
-    console.log(context.cartItems)
   }
 
   const ShowLoginSystem = () => {
@@ -81,12 +64,12 @@ const Users = () => {
   }
 
   return (
-    <div>
+    <div className="welcomeSet">
       {loggedIn ? (
         <div>
           <h2>Welcome, {username} !</h2>
-          <NavLink to="/"><button onClick={Logout}>Logout</button></NavLink>
-          <NavLink to="/shoppingcart"><button>View Cart</button></NavLink>
+          <NavLink to="/"><button className="userBtn" onClick={Logout}>Logout</button></NavLink>
+          <NavLink to="/shoppingcart"><button className="userBtn">View Cart</button></NavLink>
         </div>
       ) : (
         <div>
@@ -106,7 +89,9 @@ const Users = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {message.length > 0 && <p> {message} </p>}
+              <div className="userMessage">
+                {message.length > 0 && <p> {message} </p>}
+              </div>
               <div className="myaccountbuttons">
                 <button onClick={Signup}>Sign Up</button>
                 <button onClick={Login}>Login</button>

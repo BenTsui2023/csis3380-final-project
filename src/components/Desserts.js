@@ -43,12 +43,11 @@ const Desserts = () => {
       }, []);
 
     useEffect(() => {
-        // Combine mealData and mealPrice into a new array of objects
+        // Combine mealData and mealInfo into a new array of objects
         const newData = dessertMealsData.map((data, index) => ({...data, ...mealData.mealData[index]}));
         setdessertMealsDataWithMealInfo(newData);
         setFilteredData(newData)
     }, [dessertMealsData]);
-    console.log(filteredData)
 
     function handleFilterChange({ name, minPrice, maxPrice }) {
         let newData = [...dessertMealsDataWithMealInfo];
