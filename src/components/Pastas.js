@@ -77,7 +77,7 @@ const Pastas = () => {
     return(
         <div className="wrapper">
             <div className="desc">
-                <h1>Our Pastas</h1>
+                <h1>Pastas</h1>
             </div>
         
             <div className='filter'> <Filter onFilterChange={handleFilterChange} onReset={handleReset} /></div>

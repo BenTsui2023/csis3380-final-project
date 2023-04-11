@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
   display: grid;
@@ -9,6 +10,11 @@
   background-color: antiquewhite;
   width: 90%;
   margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /*border: 5px solid black; */
+  /*border-radius: 20px; */
+  padding: 10px
 }
 
 .wrapper {
@@ -100,6 +106,8 @@
   width: 180px;
   height: 180px;
   object-fit: contain;
+  border: 2px solid black;
+  border-radius: 5px;
 }
 
 .wrapperForProductList {
@@ -155,6 +163,10 @@
 .desc {
   grid-area: desc;
   margin-top: 1.6rem;
+  /* border: 3px solid black; */
+  border-radius: 20px;
+  padding: 10px;
+  background-color: antiquewhite;
 }
 
 .wrapperForProductList {
@@ -190,8 +202,3 @@
 .wrapperForProductDetailsDesc img {
   margin: auto;
 }
-
-/* .wrapperForProductDesc p {
-  margin-top: 0.1em;
-  margin-bottom: 0.1em;
-} */

@@ -77,7 +77,7 @@ const Desserts = () => {
     return(
         <div className="wrapper">
             <div className="desc">
-                <h1>Our Dessert</h1>
+                <h1>Desserts</h1>
             </div>
         
             <div className='filter'> <Filter onFilterChange={handleFilterChange} onReset={handleReset} /></div>

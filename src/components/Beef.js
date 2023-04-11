@@ -76,7 +76,7 @@ const Beef = () => {
     return(
         <div className="wrapper">
             <div className="desc">
-                <h1>Our Beef</h1>
+                <h1>Beef</h1>
             </div>
         
             <div className='filter'> <Filter onFilterChange={handleFilterChange} onReset={handleReset} /></div>
