@@ -6,7 +6,7 @@
     "NavBar NavBar NavBar"
     "content content content";
   grid-gap: 10px;
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
   width: 90%;
   margin: auto;
   margin-top: 20px;
@@ -21,7 +21,7 @@
   grid-template-areas: "desc desc desc desc"
     "filter wrapperForProductList wrapperForProductList wrapperForProductList";
   grid-gap: 10px;
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
 }
 
 .App-logo {
@@ -69,7 +69,7 @@
   height: 300px;
   padding: 10px;
   border-radius: 15px;
-  background-color: rgb(255, 247, 233);
+  background-color: rgba(255, 247, 233, 0.25);
   box-shadow: 5px 5px rgb(255, 188, 157);
   opacity: 0;
   transition: transform 0.5s ease-in-out;
@@ -184,10 +184,11 @@
 .desc {
   grid-area: desc;
   margin-top: 1.6rem;
+  margin-bottom: 1rem;
   /* border: 3px solid black; */
   border-radius: 20px;
   padding: 10px;
-  background-color: antiquewhite;
+  background-color: rgba(255, 247, 233, 0.25);
 }
 
 .wrapperForProductList {
@@ -204,8 +205,8 @@
   width: 50%;
   padding: 10px;
   border-radius: 15px;
-  background-color: rgb(255, 247, 233);
-  box-shadow: 5px 5px #888888
+  background-color: rgba(255, 247, 233, 0.3);
+  /* box-shadow: 5px 5px #888888 */
 }
 
 @media screen and (max-width: 1100px) {
