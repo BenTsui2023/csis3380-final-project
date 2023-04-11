@@ -9,7 +9,12 @@ const ShoppingCart = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/api/orderedMeals/', { params: { username: context.loginUserY } })
+      .get('http://localhost:3000/api/orderedMeals/', { params: { username: context.loginUser }, 
+        headers: {
+          "Authorization": `Bearer ${context.currentToken}`,
+          'Content-Type': 'application/json'
+        }
+      })
       .then((response) => {
         context.changeCartItems(response.data)
       })
@@ -161,7 +166,7 @@ const ShoppingCart = () => {
             <td colSpan="2" className='cartSummary'>${calculateTotalPrice()}</td>
           </tr>
           <tr>
-          <td colSpan="2" className='cartSummary'><NavLink to="/"><button className='actionBtn' onClick={() => confirmPayment()}>Confirm</button></NavLink></td>
+          <td colSpan="4" className='cartSummary'><NavLink to="/"><button className='actionBtn' onClick={() => confirmPayment()}>Confirm</button></NavLink></td>
           </tr>
         </tfoot>
       </table>

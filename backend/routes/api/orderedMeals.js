@@ -5,7 +5,7 @@ import User from '../../models/UsersModel.js';
 
 const router = Router();
 
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
     const { username } = req.query;
     const user = await User.findOne({ username: username }).exec();
     if (!user) {

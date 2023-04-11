@@ -10,6 +10,7 @@ const Users = () => {
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   const [message, setMessage] = useState("");
+  const [token, setToken] = useState("");
   const [showLogin, setShowLogin] = useState(false);
 
   const Signup = () => {
@@ -28,7 +29,9 @@ const Users = () => {
       .then((response) => {
         setMessage("");
         setLoggedIn(true);
+        console.log(response.data.token)
         context.changeLoginUser(username);
+        setToken(response.data.token)
         context.changeToken(response.data.token)
         context.changeLoginState(true)
       })
@@ -37,12 +40,19 @@ const Users = () => {
       })
       .then(() => {
         axios
-          .get('http://localhost:3000/api/orderedMeals/', { params: { username: username } })
+          .get('http://localhost:3000/api/orderedMeals/', { params: { username: username }, 
+          headers: {
+            "Authorization": `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        })
           .then((response) => {
             context.changeCartItems(response.data)
           })
           .catch((error) => {
             console.log(error);
+            console.log(context.loginUser)
+            console.log(token)
           });
       })
   };

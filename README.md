@@ -9,7 +9,7 @@ This project entails a <b>MERN application</b> designed specifically for <b>3380
 - **Create user account** and **login user account** functions
 - Allow user to **add items to shopping cart** with specified quantities
 - Allow user to **remove items from shopping cart**
-- Use **MongoDB to record user's shopping cart items** so they can be reyrieved even after the user logged out
+- Use **MongoDB to record user's shopping cart items** so they can be retrieved even after the user logged out
 
 # Tech Stack
 
@@ -25,8 +25,8 @@ This project entails a <b>MERN application</b> designed specifically for <b>3380
   <i>sample item structure:</i>
   ```
   {
-      "price": 5.50,
-      "description": "Apam balik, a Malaysian pancake filled with sugar, peanuts, and cream corn."
+            "price": 5.50,
+            "description": "Apam Balik - Malaysian Sweet Peanut Pancake. Indulge in the sweet and nutty flavors of Apam Balik! This popular Malaysian dessert features a crispy yet fluffy pancake made with flour, eggs, sugar, and coconut milk, filled with a delicious mixture of roasted peanuts, sugar, and butter. Satisfy your sweet tooth with every bite of this mouth-watering treat, perfect as a snack or dessert. Order now and experience the authentic taste of Malaysian cuisine with Apam Balik!"
   }
   ```
 
