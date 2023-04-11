@@ -6,7 +6,7 @@
 
 .myaccountbtndetails {
     position: absolute;
-    right: 20px;
+    right: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -54,13 +54,14 @@
     flex-direction: row;
     justify-content: flex-end;
     width: 100%;
+    margin-top: 0.2rem;
 }
 
 .myaccountbtn {
     display: inline-block;
     border: none;
     border-radius: 5px;
-    padding: 0.4rem 0.8rem;
+    padding: 0.5rem 0.8rem;
     margin: 0 0.2rem;
     font-size: 0.8rem;
     font-weight: bold;
@@ -83,7 +84,7 @@
 .login {
     border: 2px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.2rem;
     font-size: 1rem;
     height: 10px;
     transition: border-color 0.3s ease;
@@ -122,7 +123,7 @@ input[type="password"]:focus {
     border: none;
     border-radius: 5px;
     padding: 0.4rem 0.8rem;
-    margin: 0 0 0 0.4rem;
+    margin: 0 0.2rem;
     font-size: 0.8rem;
     font-weight: bold;
     color: #ffffff;
@@ -130,11 +131,20 @@ input[type="password"]:focus {
     box-shadow: 0 3px 0 rgb(145, 43, 0);
     cursor: pointer;
     transition: background-color 0.3s ease;
-    float: right;
 }
 
-h2 {
+.welcome h2 {
+    display: block;
     line-height: 0%;
-    margin-top: 3.5rem;
     text-align: right;
+}
+
+.welcome {
+    position: absolute;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    animation: fadeIn 1s ease-in-out forwards;
 }
