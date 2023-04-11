@@ -53,7 +53,7 @@ function App() {
     <UserContext.Provider value={userContextValue}>
       <BrowserRouter>
         <div className="App">
-          <div className='header'><NavLink to="/" style={{ textDecoration: 'none', color: 'rgb(255, 113, 47)' }}>3380 Prairie Sky Cafe</NavLink></div>
+          <div className='header'><NavLink to="/" style={{ textDecoration: 'none', color: 'rgb(255, 113, 47)' }}><p>3380 Prairie Sky Cafe  </p></NavLink></div>
           <div className='users'>
             <Users />
           </div>
