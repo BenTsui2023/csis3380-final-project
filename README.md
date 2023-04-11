@@ -1,6 +1,6 @@
 # CSIS3380 Final Project
 <img src="./doc/project_preview.png"  style="width: 1000px">
-This project entails a <b>MERN application</b> designed specifically for <b>3380 Prairie Sky Cafe</b>, where users are able to register an account and place orders. The system is also capable of keeping track of the user's previous orders.
+This project entails a <b>MERN application</b> designed specifically for <b>3380 Prairie Sky Cafe</b>, where users are able to register an account and place orders. The system is also capable of keeping track of the user's shopping cart.
 
 # Features
 - Combining data from TheMealDB API and self-creacted API to render **React card components** for meal items
