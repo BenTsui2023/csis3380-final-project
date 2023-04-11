@@ -50,7 +50,7 @@ router.post('/login', (req, res) => {
         return userModel.comparePassword(password, function (err, isMatch) {
             if (err) return res.status(400).send(err);
             if (!isMatch) {
-                return res.status(401).send({ err: 'invalid password' });
+                return res.status(401).send({ err: 'Please enter a valid username or password' });
             }
             const payload = { id: userModel._id };
             const token = jwt.sign(payload, secret);
