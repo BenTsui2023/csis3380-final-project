@@ -8,14 +8,18 @@ import '../css/ProductDetails.css';
 const ProductDetails = () => {
   const context = useContext(UserContext);
   const { state } = useLocation();
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const [message, setMessage] = useState("");
 
   const API_URL = 'http://localhost:4000'
   const RENDER_URL = 'https://csis3380-final-project.onrender.com'
 
   const SubmitMeal = (e) => {
-    if (context.loggedInSucceed == false) {
+    if(quantity < 1){
+      e.preventDefault();
+      setMessage("Please order at least one meal");
+    }
+    else if (context.loggedInSucceed == false) {
       e.preventDefault();
       setMessage("Please log in to add items to your cart.");
       return;
@@ -102,7 +106,7 @@ const ProductDetails = () => {
         <form onSubmit={SubmitMeal}>
           <label>
             Quantity:{' '}
-            <input type="number" min="1" max="10" value={quantity} onChange={QuantityChange} />
+            <input type="number" min="1" max="10" defaultValue={quantity} onChange={QuantityChange} />
           </label>
           <button type="submit">Add to cart</button>
         </form>

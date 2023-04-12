@@ -14,9 +14,6 @@ import Users from "./Users";
 import ShoppingCart from "./ShoppingCart"
 import UserContext from '../context/user-context';
 import '../css/App.css';
-// import cors from "cors"
-
-// app.use(cors());
 
 function App() {
   const [loginUser, setLoginUser] = useState("");
