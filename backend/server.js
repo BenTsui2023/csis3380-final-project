@@ -12,6 +12,7 @@ const app = express();
 app.use(parser.urlencoded({
     extended: false
 }));
+
 app.use(cors());
 
 app.use(express.json());
