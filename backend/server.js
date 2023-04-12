@@ -12,9 +12,11 @@ const app = express();
 app.use(parser.urlencoded({
     extended: false
 }));
-app.use(cors({
-    origin: 'https://csis3380-final-project.vercel.app/'
-}));
+// app.use(cors({
+//     origin: 'https://csis3380-final-project.vercel.app/'
+// }));
+app.use(cors());
+
 app.use(express.json());
 app.use('/api', apiRoutes);
 

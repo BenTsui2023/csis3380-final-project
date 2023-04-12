@@ -1,14 +1,18 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLocation } from "react-router-dom"
 import UserContext from '../context/user-context';
 import axios from 'axios';
 import '../css/ProductDetails.css';
+
 
 const ProductDetails = () => {
   const context = useContext(UserContext);
   const { state } = useLocation();
   const [quantity, setQuantity] = useState(0);
   const [message, setMessage] = useState("");
+
+  const API_URL = 'http://localhost:4000'
+  const RENDER_URL = 'https://csis3380-final-project.onrender.com'
 
   const SubmitMeal = (e) => {
     if (context.loggedInSucceed == false) {
@@ -27,7 +31,7 @@ const ProductDetails = () => {
       if (itemIndex === -1) {
         context.changeCartItems([...context.cartItems, { mealName: state.mealName, quantity: quantity, mealId: state.mealId, price: state.price }]);
 
-        axios.post("https://csis3380-final-project.onrender.com/api/orderedMeals/addNewItem", {
+        axios.post(`${RENDER_URL}/api/orderedMeals/addNewItem`, {
           mealName: state.mealName,
           quantity,
           mealId: state.mealId,
@@ -52,7 +56,7 @@ const ProductDetails = () => {
         newCart[itemIndex].quantity = newCart[itemIndex].quantity + quantity; 
         context.changeCartItems(newCart);
 
-        axios.post("https://csis3380-final-project.onrender.com/api/orderedMeals/addItem", {
+        axios.post(`${RENDER_URL}/api/orderedMeals/addItem`, {
           quantity: context.cartItems[itemIndex].quantity,
           mealId: state.mealId
         },

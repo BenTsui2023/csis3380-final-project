@@ -6,10 +6,12 @@ import '../css/ShoppingCart.css';
 
 const ShoppingCart = () => {
   const context = useContext(UserContext);
+  const API_URL = 'http://localhost:4000'
+  const RENDER_URL = 'https://csis3380-final-project.onrender.com'
 
   useEffect(() => {
     axios
-      .get('http://localhost:4000/api/orderedMeals/', { params: { username: context.loginUser }, 
+      .get(`${RENDER_URL}/api/orderedMeals/`, { params: { username: context.loginUser }, 
         headers: {
           "Authorization": `Bearer ${context.currentToken}`,
           'Content-Type': 'application/json'
@@ -28,7 +30,7 @@ const ShoppingCart = () => {
     newCartItems.splice(index, 1);
     context.changeCartItems(newCartItems);
 
-    axios.post("http://localhost:4000/api/orderedMeals/updateCart",
+    axios.post(`${RENDER_URL}/api/orderedMeals/updateCart`,
       {
         newCart: newCartItems
       },
@@ -52,7 +54,7 @@ const ShoppingCart = () => {
     newCartItems[index].quantity++;
     context.changeCartItems(newCartItems);
 
-    axios.post("http://localhost:4000/api/orderedMeals/updateCart",
+    axios.post(`${RENDER_URL}/api/orderedMeals/updateCart`,
       {
         newCart: newCartItems
       },
@@ -78,7 +80,7 @@ const ShoppingCart = () => {
       context.changeCartItems(newCartItems);
     }
 
-    axios.post("http://localhost:4000/api/orderedMeals/updateCart",
+    axios.post(`${RENDER_URL}/api/orderedMeals/updateCart`,
       {
         newCart: newCartItems
       },
@@ -110,7 +112,7 @@ const ShoppingCart = () => {
 
     context.changeCartItems([]);
 
-    axios.delete("http://localhost:4000/api/orderedMeals/deleteCart",
+    axios.delete(`${RENDER_URL}/api/orderedMeals/deleteCart`,
       {
         headers: {
           "Authorization": `Bearer ${context.currentToken}`,

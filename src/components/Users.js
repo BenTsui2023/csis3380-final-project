@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import UserContext from '../context/user-context';
 import '../css/User.css';
 
+
 const Users = () => {
   const context = useContext(UserContext);
   const [username, setUsername] = useState("");
@@ -12,9 +13,11 @@ const Users = () => {
   const [message, setMessage] = useState("");
   const [token, setToken] = useState("");
   const [showLogin, setShowLogin] = useState(false);
+  const API_URL = 'http://localhost:4000'
+  const RENDER_URL = 'https://csis3380-final-project.onrender.com'
 
   const Signup = () => {
-    axios.post("https://csis3380-final-project.onrender.com/api/users/signup", { username, password })
+    axios.post(`${RENDER_URL}/api/users/signup`, { username, password })
       .then((response) => {
         setMessage(`Your account (Username: ${username}) is created !`);
         console.log(response);
@@ -25,7 +28,7 @@ const Users = () => {
   };
 
   const Login = () => {
-    axios.post("https://csis3380-final-project.onrender.com/api/users/login", { username, password })
+    axios.post(`${RENDER_URL}/api/users/login`, { username, password })
       .then((response) => {
         setMessage("");
         setLoggedIn(true);
@@ -40,7 +43,7 @@ const Users = () => {
       })
       .then(() => {
         axios
-          .get('https://csis3380-final-project.onrender.com/api/orderedMeals/', { params: { username: username }, 
+          .get(`${RENDER_URL}/api/orderedMeals/`, { params: { username: username }, 
           headers: {
             "Authorization": `Bearer ${token}`,
             'Content-Type': 'application/json'
