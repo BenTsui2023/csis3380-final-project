@@ -14,7 +14,7 @@ const Users = () => {
   const [showLogin, setShowLogin] = useState(false);
 
   const Signup = () => {
-    axios.post("http://localhost:4000/api/users/signup", { username, password })
+    axios.post("https://csis3380-final-project.onrender.com/api/users/signup", { username, password })
       .then((response) => {
         setMessage(`Your account (Username: ${username}) is created !`);
         console.log(response);
@@ -25,7 +25,7 @@ const Users = () => {
   };
 
   const Login = () => {
-    axios.post("http://localhost:4000/api/users/login", { username, password })
+    axios.post("https://csis3380-final-project.onrender.com/api/users/login", { username, password })
       .then((response) => {
         setMessage("");
         setLoggedIn(true);
@@ -40,7 +40,7 @@ const Users = () => {
       })
       .then(() => {
         axios
-          .get('http://localhost:4000/api/orderedMeals/', { params: { username: username }, 
+          .get('https://csis3380-final-project.onrender.com/api/orderedMeals/', { params: { username: username }, 
           headers: {
             "Authorization": `Bearer ${token}`,
             'Content-Type': 'application/json'

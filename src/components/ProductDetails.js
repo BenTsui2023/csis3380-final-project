@@ -27,7 +27,7 @@ const ProductDetails = () => {
       if (itemIndex === -1) {
         context.changeCartItems([...context.cartItems, { mealName: state.mealName, quantity: quantity, mealId: state.mealId, price: state.price }]);
 
-        axios.post("http://localhost:4000/api/orderedMeals/addNewItem", {
+        axios.post("https://csis3380-final-project.onrender.com/api/orderedMeals/addNewItem", {
           mealName: state.mealName,
           quantity,
           mealId: state.mealId,
@@ -52,7 +52,7 @@ const ProductDetails = () => {
         newCart[itemIndex].quantity = newCart[itemIndex].quantity + quantity; 
         context.changeCartItems(newCart);
 
-        axios.post("http://localhost:4000/api/orderedMeals/addItem", {
+        axios.post("https://csis3380-final-project.onrender.com/api/orderedMeals/addItem", {
           quantity: context.cartItems[itemIndex].quantity,
           mealId: state.mealId
         },
