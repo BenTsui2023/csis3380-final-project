@@ -1,3 +1,9 @@
+body{
+  background-image: url("../assets/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .App {
   text-align: center;
   display: grid;
@@ -11,7 +17,8 @@
   margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
-  padding: 10px
+  padding: 10px;
+
 }
 
 .wrapper {
