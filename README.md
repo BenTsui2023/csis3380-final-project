@@ -39,7 +39,7 @@ This project entails a <b>MERN application</b> designed specifically for <b>3380
 - **userSchema** is used to create a Users model which includes a username, hashed password and array of ordered meals associated with their account
 - This API uses **JSON Web Tokens (JWTs)** for user authentication
 - The following structure map is the API routes for this application:
-<img src="./doc/API_structural_map.png" style="width: 1000px"> 
+<img src="./doc/API_structural_map.png" style="width: 450px"> 
 
 # Structural Map for Components
 <img src="./doc/structural_map.png"  style="width: 1100px">
