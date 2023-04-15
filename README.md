@@ -31,6 +31,15 @@ This project entails a <b>MERN application</b> designed specifically for <b>3380
       "description": "Apam Balik - Malaysian Sweet Peanut Pancake. Indulge in the sweet and nutty flavors of Apam Balik! This popular Malaysian dessert features a crispy yet fluffy pancake made with flour, eggs, sugar, and coconut milk, filled with a delicious mixture of roasted peanuts, sugar, and butter. Satisfy your sweet tooth with every bite of this mouth-watering treat, perfect as a snack or dessert. Order now and experience the authentic taste of Malaysian cuisine with Apam Balik!"
   }
   ```
+# Structure of our own API
+- Our API is a server which uses **Express** to set up middleware for parsing request bodies, request routes and enabling CORS.
+- This Express application also connects to the MongoDB database using Mongoose
+- Our API uses two Mongoose schemas which are **userSchema** and **orderedMealsSchema**
+- **orderedMealsSchema** is used to create a orderedMeals model for the meals that users can order
+- **userSchema** is used to create a Users model which includes a username, hashed password and array of ordered meals associated with their account
+- This API uses **JSON Web Tokens (JWTs)** for user authentication
+- The following structure map is the API routes for this application:
+<img src="./doc/API_structural_map.png" style="width: 1000px"> 
 
 # Structural Map for Components
 <img src="./doc/structural_map.png"  style="width: 1100px">
