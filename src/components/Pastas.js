@@ -9,6 +9,7 @@ const Pastas = () => {
   const [pastaMealsDataWithMealInfo, setPastaMealsDataWithMealInfo] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
 
+  //fetches data from the themealdb API
   useEffect(() => {
     fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Pasta')
       .then(response => response.json())
@@ -49,6 +50,7 @@ const Pastas = () => {
     setFilteredData(newData)
   }, [pastaMealsData]);
 
+  //function for Filter component that filters the meal data
   function handleFilterChange({ name, minPrice, maxPrice }) {
     let newData = [...pastaMealsDataWithMealInfo];
 

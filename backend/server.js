@@ -26,13 +26,13 @@ mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedT
 const connection = mongoose.connection;
 
 connection.once("open", () => {
-    console.log('Mongodb connection established successfully')
+    console.log('Connected to the Mongodb')
 })
 
 app.get('/', (req, res) => {
-    return res.send('Hello world');
+    return res.send('Connected to the server');
 });
 
 app.listen(port, () => {
-    console.log("starting server")
+    console.log(`starting server at port: ${port}`)
 }); 

@@ -15,6 +15,7 @@ const ProductDetails = () => {
   const RENDER_URL = 'https://csis3380-final-project.onrender.com'
 
   const SubmitMeal = (e) => {
+    //promt the user to enter a valid quantity and login
     if(quantity < 1){
       e.preventDefault();
       setMessage("Please order at least one meal");
@@ -24,14 +25,17 @@ const ProductDetails = () => {
       setMessage("Please log in to add items to your cart.");
       return;
     }
+    //add the meals to the shopping cart and also update the database
     else {
       e.preventDefault();
       setMessage(`Product: ${state.mealName} added to your cart!`)
 
+      //check whether the ordered meal is already ordered or not
       const itemIndex = context.cartItems.findIndex(
         (meal) => meal.mealId === state.mealId
       );
 
+      //add the new meal to the cart if it does't exist in the cart
       if (itemIndex === -1) {
         context.changeCartItems([...context.cartItems, { mealName: state.mealName, quantity: quantity, mealId: state.mealId, price: state.price }]);
 
@@ -55,6 +59,7 @@ const ProductDetails = () => {
             setMessage(error.response.data.err);
           });
       }
+      //only update the quantity of the meal if it exists in the cart
       else {
         const newCart = [...context.cartItems];
         newCart[itemIndex].quantity = newCart[itemIndex].quantity + quantity; 

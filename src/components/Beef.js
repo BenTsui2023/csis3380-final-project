@@ -48,6 +48,7 @@ const Beef = () => {
     setFilteredData(newData)
   }, [beefMealsData]);
 
+  //function for Filter component that filters the meal data
   function handleFilterChange({ name, minPrice, maxPrice }) {
     let newData = [...beefMealsDataWithMealInfo];
 

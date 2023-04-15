@@ -13,7 +13,9 @@ const options = {
 
 const strategy = new Strategy(options, function (payload, next) { 
     User.findOne({ _id: payload.id }, function (err, result) { 
-        if (err) return next(err); 
+        if (err) {
+            return next(err); 
+        }
         return next(null, result); 
     }); 
 });

@@ -49,6 +49,7 @@ const Desserts = () => {
         setFilteredData(newData)
     }, [dessertMealsData]);
 
+    //function for Filter component that filters the meal data
     function handleFilterChange({ name, minPrice, maxPrice }) {
         let newData = [...dessertMealsDataWithMealInfo];
 

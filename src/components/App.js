@@ -16,6 +16,7 @@ import UserContext from '../context/user-context';
 import '../css/App.css';
 
 function App() {
+  //global state that is stored in context 
   const [loginUser, setLoginUser] = useState("");
   const [currentToken, setCurrentToken] = useState("");
   const [cartItems, setCartItems] = useState([]);

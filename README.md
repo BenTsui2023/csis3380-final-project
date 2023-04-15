@@ -3,14 +3,15 @@
 This project entails a <b>MERN application</b> designed specifically for <b>3380 Prairie Sky Cafe</b>, where users are able to register an account and place orders. The system is also capable of keeping track of the user's shopping cart.
 
 # Features
-- Combining data from TheMealDB API and self-creacted API to render **React card components** for meal items
+- Combining data from public TheMealDB API (meal name, image, mealID and Ingredients) and self-creacted API (provide meals' description and price) to render **React card components** for meal items
 - **Fading-in css effect** on card rendering, **floating css effect** on card hovered, and **animation** on page links hovered
 - Leverage on React state to create a **filter for user to search for desired items** based on names or prices
 - **Create user account** and **login user account** functions
 - Using **JWT authentication system** for authentication and authorization
 - Allow user to **add items to shopping cart** with specified quantities
-- Allow user to **remove items from shopping cart**
+- Allow user to **remove items and adjust quantity of items from shopping cart**
 - Use **MongoDB to record user's shopping cart items** so they can be retrieved even after the user logged out
+- Use **my own API which is a backend server** to connect to and communicate with the MongoDB to do CRUD
 
 # Tech Stack
 

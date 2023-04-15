@@ -6,11 +6,11 @@ import { secret, auth } from '../../config/passport.js';
 const router = Router();
 
 router.get('/', auth, (req, res) => {
-    User.find({}, function (err, users) {
+    User.find({}, function (err, usersInfo) {
         if (err) {
             return res.status(500).send({ err });
         }
-        return res.status(200).send(users);
+        return res.status(200).send(usersInfo);
     })
 });
 
@@ -29,7 +29,7 @@ router.post('/signup', (req, res) => {
     });
     newUser.save(function (err, model) {
         if (err) {
-            return res.status(400).send({ err: 'username already existed, cannot sign up' });
+            return res.status(400).send({ err: 'username already existed, please use another username' });
         }
         return res.status(201).send(model);
     });
@@ -44,11 +44,17 @@ router.post('/login', (req, res) => {
         return res.status(400).send({ err: "Please enter your password" });
     }
     User.findOne({ username: username }, function (err, userModel) {
-        if (err) return res.status(400).send(err);
-        if (!userModel) return res.status(400).send({ err: 'Cannot find user' });
+        if (err) {
+            return res.status(400).send(err);
+        }
+        if (!userModel) {
+            return res.status(400).send({ err: 'Please enter a valid username or password' });
+        }
 
         return userModel.comparePassword(password, function (err, isMatch) {
-            if (err) return res.status(400).send(err);
+            if (err) {
+                return res.status(400).send(err);
+            }
             if (!isMatch) {
                 return res.status(401).send({ err: 'Please enter a valid username or password' });
             }

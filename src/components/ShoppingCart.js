@@ -9,6 +9,7 @@ const ShoppingCart = () => {
   const API_URL = 'http://localhost:4000'
   const RENDER_URL = 'https://csis3380-final-project.onrender.com'
 
+  //retrieve the data from database when the user ener the shopping cart
   useEffect(() => {
     axios
       .get(`${RENDER_URL}/api/orderedMeals/`, { params: { username: context.loginUser }, 
@@ -107,6 +108,7 @@ const ShoppingCart = () => {
     return totalPrice.toFixed(2);
   };
 
+  //if the user confirm the order, empty the cart
   const confirmPayment = () => {
     alert("Thanks for ordering!")
 
